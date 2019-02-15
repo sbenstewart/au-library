@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Borrowed Books</title>
+    <title>Books</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -335,7 +335,7 @@
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Home</a></li>
-                                <li><span>Borrowed Books</span></li>
+                                <li><span>Search for Books</span></li>
                             </ul>
                         </div>
                     </div>
@@ -344,7 +344,8 @@
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Details</a>
+                                <a class="dropdown-item" href="#">Message</a>
+                                <a class="dropdown-item" href="#">Settings</a>
                                 <a class="dropdown-item" href="#">Log Out</a>
                             </div>
                         </div>
@@ -354,11 +355,41 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
+
+                  <div class="col-12 mt-5">
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="header-title">Search details</h4>
+                              <form action="#">
+                                  <div class="form-group">
+                                      <label for="book">Book name</label>
+                                      <input type="text" class="form-control" id="book" aria-describedby="emailHelp" placeholder="Enter book name">
+                                      <small id="emailHelp" class="form-text text-muted">This is the field that gets the most accurate results.</small>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="author">Author name</label>
+                                      <input type="text" class="form-control" id="author" aria-describedby="emailHelp" placeholder="Enter author name">
+                                      <small id="emailHelp" class="form-text text-muted">Narrow down your search by using this field.</small>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="code">Book code</label>
+                                      <input type="text" class="form-control" id="code" aria-describedby="emailHelp" placeholder="Enter book code">
+                                      <small id="emailHelp" class="form-text text-muted">This is for the dedicated ones who know right down till the code.</small>
+                                  </div>
+
+
+                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Search</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
                     <!-- table primary start -->
                     <div class="col-lg-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Borrowed Books</h4>
+                                <h4 class="header-title">Books that matched your search</h4>
                                 <div class="single-table">
                                     <div class="table-responsive">
                                         <table class="table text-center">
@@ -368,8 +399,7 @@
                                                     <th scope="col">Book ID</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Author</th>
-                                                    <th scope="col">Date of Return</th>
-                                                    <th scope="col">Returned</th>
+                                                    <th scope="col">Availability</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -378,7 +408,6 @@
                                                     <td>Code 1</td>
                                                     <td>Book 1</td>
                                                     <td>Author 1</td>
-                                                    <td>09 / 07 / 2018</td>
                                                     <td>Yes</td>
 
                                                 </tr>
@@ -387,7 +416,6 @@
                                                     <td>Code 2</td>
                                                     <td>Book 2</td>
                                                     <td>Author 2</td>
-                                                    <td>09 / 07 / 2018</td>
                                                     <td>Yes</td>
                                                 </tr>
                                                 <tr>
@@ -395,7 +423,6 @@
                                                     <td>Code 3</td>
                                                     <td>Book 3</td>
                                                     <td>Author 3</td>
-                                                    <td>09 / 07 / 2018</td>
                                                     <td>Yes</td>
                                                 </tr>
                                                 <tr>
@@ -403,7 +430,6 @@
                                                     <td>Code 4</td>
                                                     <td>This is a book with a really long title that needs to be put as a whole.</td>
                                                     <td>There are a list of authors whose names have to be uploaded.</td>
-                                                    <td>09 / 07 / 2018</td>
                                                     <td>Yes</td>
                                                 </tr>
                                             </tbody>
@@ -413,34 +439,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- table primary end -->
-                    <!-- table success start -->
 
-                    <!-- table success end -->
-                    <!-- table info start -->
-
-                    <!-- table info end -->
-                    <!-- table warning start -->
-
-                    <!-- table warning end -->
-                    <!-- table danger start -->
-
-                    <!-- table danger end -->
-                    <!-- table dark start -->
-
-                    <!-- table dark end -->
-                    <!-- table light start -->
-
-                    <!-- table light end -->
-                    <!-- table secondary start -->
-
-                    <!-- table secondary end -->
-                    <!-- Contextual Classes start -->
-
-                    <!-- Contextual Classes end -->
-                    <!-- Contextual Classes start -->
-
-                    <!-- Contextual Classes end -->
                 </div>
             </div>
         </div>
