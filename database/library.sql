@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 12, 2019 at 12:00 PM
+-- Generation Time: Feb 18, 2019 at 05:36 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -45,18 +45,62 @@ CREATE TABLE `book` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `borrow`
+-- Table structure for table `config`
 --
--- Creation: Feb 12, 2019 at 11:58 AM
+-- Creation: Feb 18, 2019 at 05:27 PM
+-- Last update: Feb 18, 2019 at 05:31 PM
 --
 
-DROP TABLE IF EXISTS `borrow`;
-CREATE TABLE `borrow` (
+DROP TABLE IF EXISTS `config`;
+CREATE TABLE `config` (
+  `key` varchar(100) NOT NULL,
+  `value` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `config`
+--
+
+INSERT INTO `config` (`key`, `value`) VALUES
+('fine', '3'),
+('borrow', '5'),
+('fine', '3'),
+('borrow', '5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+-- Creation: Feb 18, 2019 at 05:35 PM
+--
+
+DROP TABLE IF EXISTS `history`;
+CREATE TABLE `history` (
   `id` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
   `bookid` int(11) NOT NULL,
   `issuedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `returndate` date NOT NULL
+  `returndate` date NOT NULL,
+  `fine` int(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `issued`
+--
+-- Creation: Feb 18, 2019 at 05:34 PM
+--
+
+DROP TABLE IF EXISTS `issued`;
+CREATE TABLE `issued` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `bookid` int(11) NOT NULL,
+  `issuedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `returndate` date NOT NULL,
+  `fine` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -91,9 +135,17 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `borrow`
+-- Indexes for table `history`
 --
-ALTER TABLE `borrow`
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userid` (`userid`),
+  ADD KEY `bookid` (`bookid`);
+
+--
+-- Indexes for table `issued`
+--
+ALTER TABLE `issued`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
   ADD KEY `bookid` (`bookid`);
@@ -115,9 +167,15 @@ ALTER TABLE `book`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `borrow`
+-- AUTO_INCREMENT for table `history`
 --
-ALTER TABLE `borrow`
+ALTER TABLE `history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `issued`
+--
+ALTER TABLE `issued`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -131,11 +189,11 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `borrow`
+-- Constraints for table `issued`
 --
-ALTER TABLE `borrow`
-  ADD CONSTRAINT `borrow_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `borrow_ibfk_2` FOREIGN KEY (`bookid`) REFERENCES `book` (`id`);
+ALTER TABLE `issued`
+  ADD CONSTRAINT `issued_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `issued_ibfk_2` FOREIGN KEY (`bookid`) REFERENCES `book` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
