@@ -38,7 +38,7 @@
     <div class="login-area">
         <div class="container">
             <div class="login-box ptb--100">
-                <form action="borrowed-books.html">
+                <form action="#">
                     <div class="login-form-head">
                         <h4>Login</h4>
                         <p>Hello there, login into the Hostel Library portal using the mail id and password given during hostel admission.</p>
@@ -59,11 +59,11 @@
 
                             </div>
                             <div class="col-6 text-right">
-                                <a href="#">Forgot Password?</a>
+                                <a href="#" onclick="forgotPassword()">Forgot Password?</a>
                             </div>
                         </div>
                         <div class="submit-btn-area">
-                            <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                            <button id="form_submit" onclick="loginUser()" type="submit">Submit <i class="ti-arrow-right"></i></button>
                             <div class="login-other row mt-4">
 
                             </div>
@@ -87,6 +87,7 @@
     <script src="assets/js/metisMenu.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script type='text/javascript' src='assets/js/main.js'></script>
 
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
