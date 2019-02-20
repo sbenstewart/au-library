@@ -200,7 +200,7 @@ data: dataString,
 cache: false,
 success: function(html) {
 alert(html);
-location.href = "borrowed-books.html";
+window.location = "borrowed-books.html";
 }
 });
 }

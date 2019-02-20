@@ -17,7 +17,7 @@ try {
           $reg = $row['reg'];
           $name = $row['name'];
           session_start();
-          $_SESSION["reg-num"]=$reg;
+          $_SESSION["reg"]=$reg;
           $_SESSION["name"]=$name;
           echo "Logged in as ";
           echo $_SESSION["name"];
