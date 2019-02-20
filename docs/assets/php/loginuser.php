@@ -1,28 +1,29 @@
 <?php
 require_once 'dbconfig.php';
 $password2 = $_POST['password1'];
-$roll2 = $_POST['roll1'];
+$mail2 = $_POST['mail1'];
 
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
-  $sql = "SELECT COUNT(*) from user where reg='$roll2' and password='$password2'";
+  $sql = "SELECT COUNT(*) from user where emailid='$mail2' and password='$password2'";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT reg,name from user where reg='$roll2' and password='$password2'") as $row)
+        foreach ($conn->query("SELECT cid,name from user where emailid='$mail2' and password='$password2'") as $row)
         {
-          $reg = $row['reg'];
+          $id = $row['cid'];
           $name = $row['name'];
           session_start();
-          $_SESSION["reg"]=$reg;
+          $_SESSION["cid"]=$id;
           $_SESSION["name"]=$name;
           echo "Logged in as ";
           echo $_SESSION["name"];
-          echo " with roll number ";
-          echo $reg;
+          echo " with cid. ";
+          echo $id;
+          echo "Please note this number for future reference.";
 
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
@@ -37,6 +38,11 @@ try {
         else {
         echo "Submission failed. Try later.";
         }
+
+
+
+
+
 
 
 } catch (PDOException $pe) {
