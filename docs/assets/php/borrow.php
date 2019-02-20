@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 require_once 'dbconfig.php';
 $book2 = $_POST['book1'];
 $author2 = $_POST['author1'];
@@ -9,18 +9,12 @@ try {
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
 
-
-
-  if(isset($_SESSION["userid"]))
-  {
-    $user = $_SESSION["userid"];
-  }
-
-  $sql = "SELECT COUNT(*) FROM book LEFT JOIN issued ON book.id = issued.bookid WHERE issued.userid='$user'";
+  $sql = "SELECT COUNT(*) from book where name LIKE '%$book2%'";
   if ($res = $conn->query($sql)) {
 
+      /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT isbn,name,author,if(CURDATE()<returndate,"NO","YES") as returned FROM book LEFT JOIN issued ON book.id = issued.bookid WHERE issued.userid='$user'") as $row)
+        foreach ($conn->query("SELECT isbn,name,author,remaining from book where name LIKE '%$book2%'") as $row)
         {
 
           echo '<tbody>';
@@ -36,12 +30,16 @@ try {
           $author2 = $row['author'];
           echo $author2;
           echo "</td><td>";
-          $returned = $row['returned'];
-          echo $returned;
+          $remaining2 = $row['remaining'];
+          $availability = 'Yes';
+          if($remaining2==0)
+          {$availability='No';}
+          echo $availability;
           echo "</td></tr></tbody>";
           $count = $count+1;
 
 
+          /*session is started if you don't write this line can't use $_Session  global variable*/
         }
 
         }

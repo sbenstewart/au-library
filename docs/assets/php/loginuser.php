@@ -12,14 +12,13 @@ try {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT reg,name,id from user where reg='$roll2' and password='$password2'") as $row)
+        foreach ($conn->query("SELECT reg,name from user where reg='$roll2' and password='$password2'") as $row)
         {
           $reg = $row['reg'];
           $name = $row['name'];
           session_start();
           $_SESSION["reg"]=$reg;
           $_SESSION["name"]=$name;
-          $_SESSION["userid"]=$row['id'];
           echo "Logged in as ";
           echo $_SESSION["name"];
           echo " with roll number ";
