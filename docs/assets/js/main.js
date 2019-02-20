@@ -200,7 +200,7 @@ data: dataString,
 cache: false,
 success: function(html) {
 alert(html);
-window.location = "borrowed-books.html";
+if(html.startsWith("Logged")){window.location = "borrowed-books.html";}
 }
 });
 }
