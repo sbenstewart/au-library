@@ -9,6 +9,7 @@ if(fileName == 'borrowed-books.html')
   type: "POST",
   url: "assets/php/borrow.php",
   data: dataString,
+  processData: false,
   cache: false,
   success: function(html) {
   document.getElementById('tablebody').innerHTML=html;
@@ -32,6 +33,7 @@ alert("Please Fill All Fields");
 jQuery.ajax({
 type: "POST",
 url: "assets/php/loginuser.php",
+processData: false,
 data: dataString,
 cache: false,
 success: function(html) {
@@ -56,6 +58,7 @@ alert("Please Fill All Fields");
 jQuery.ajax({
 type: "POST",
 url: "assets/php/forgotpassword.php",
+processData: false,
 data: dataString,
 cache: false,
 success: function(html) {
@@ -81,6 +84,7 @@ if(book != '' && author == '' && code == '')
 jQuery.ajax({
 type: "POST",
 url: "assets/php/1.php",
+processData: false,
 data: dataStringBook,
 cache: false,
 success: function(html) {
@@ -94,6 +98,7 @@ if(book == '' && author != '' && code == '')
 jQuery.ajax({
 type: "POST",
 url: "assets/php/2.php",
+processData: false,
 data: dataStringBook,
 cache: false,
 success: function(html) {
@@ -107,6 +112,7 @@ if(book == '' && author == '' && code != '')
 jQuery.ajax({
 type: "POST",
 url: "assets/php/3.php",
+processData: false,
 data: dataStringBook,
 cache: false,
 success: function(html) {
@@ -120,6 +126,7 @@ if(book != '' && author != '' && code == '')
 jQuery.ajax({
 type: "POST",
 url: "assets/php/4.php",
+processData: false,
 data: dataStringBook,
 cache: false,
 success: function(html) {
@@ -133,6 +140,7 @@ if(book != '' && author == '' && code != '')
 jQuery.ajax({
 type: "POST",
 url: "assets/php/5.php",
+processData: false,
 data: dataStringBook,
 cache: false,
 success: function(html) {
@@ -146,6 +154,7 @@ if(book == '' && author != '' && code != '')
 jQuery.ajax({
 type: "POST",
 url: "assets/php/6.php",
+processData: false,
 data: dataStringBook,
 cache: false,
 success: function(html) {
@@ -159,6 +168,7 @@ if(book != '' && author != '' && code != '')
 jQuery.ajax({
 type: "POST",
 url: "assets/php/7.php",
+processData: false,
 data: dataStringBook,
 cache: false,
 success: function(html) {
