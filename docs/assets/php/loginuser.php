@@ -22,7 +22,7 @@ try {
           echo "Logged in as ";
           echo $_SESSION["name"];
           echo " with roll number ";
-          echo $reg;
+          echo $_SESSION["reg"];
 
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
