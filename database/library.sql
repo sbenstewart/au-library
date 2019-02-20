@@ -189,7 +189,7 @@ DELIMITER ;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL COMMENT 'id for db access',
-  `reg-num` varchar(16) NOT NULL COMMENT 'roll number given for each student in the college',
+  `reg` varchar(16) NOT NULL COMMENT 'roll number given for each student in the college',
   `name` varchar(36) NOT NULL COMMENT 'name of the student',
   `password` varchar(36) NOT NULL COMMENT 'password assigned to the student',
   `course` varchar(100) NOT NULL,
