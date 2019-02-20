@@ -43,3 +43,61 @@ alert(html);
 }
 return false;
 }
+
+function searchBook() {
+var book = document.getElementById("book").value;
+var author = document.getElementById("author").value;
+var code = document.getElementById("code").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataStringBook = '&book1=' + book;
+var dataStringAuthor = '&author1=' + author;
+var dataStringCode = '&code1=' + code;
+if (book == '' && author == '' && code == '') {
+alert("Please give us some details to search for.");
+}
+if(book != '')
+{
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/bookname.php",
+data: dataStringBook,
+cache: false,
+success: function(html) {
+alert(html);
+//var temp=document.getElementById(tablebody).innerHTML;
+//var temp = temp.concat(html);
+var div=document.getElementById(tablebody);
+div.innerHTML=html;
+}
+});
+}
+if(author != '')
+{
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/bookauthor.php",
+data: dataStringAuthor,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+if(code != '')
+{
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/bookcode.php",
+data: dataStringCode,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+
+return false;
+}

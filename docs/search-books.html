@@ -47,7 +47,6 @@
                 <div class="menu-inner">
                     <nav>
                         <ul class="metismenu" id="menu">
-
                             <li><a href="borrowed-books.html"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
                             <li class="active"><a href="search-books.html"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
                             <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
@@ -101,7 +100,7 @@
                       <div class="card">
                           <div class="card-body">
                               <h4 class="header-title">Search details</h4>
-                              <form action="#">
+                              <form>
                                   <div class="form-group">
                                       <label for="book">Book name</label>
                                       <input type="text" class="form-control" id="book" aria-describedby="emailHelp" placeholder="Enter book name">
@@ -121,13 +120,13 @@
                                   </div>
 
 
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Search</button>
+                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchBook()">Search</button>
                               </form>
                           </div>
                       </div>
                   </div>
                     <!-- table primary start -->
-                    <div class="col-lg-12 mt-5">
+                    <div id="blood" class="col-lg-12 mt-5">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Books that matched your search</h4>
@@ -206,6 +205,7 @@
     <script src="assets/js/metisMenu.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script type='text/javascript' src='assets/js/main.js'></script>
 
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
