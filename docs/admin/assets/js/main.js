@@ -1,12 +1,3 @@
-function hide() {
-  var x = document.getElementById("submenu");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
 function regUser() {
 var name = document.getElementById("name").value;
 var mail = document.getElementById("mail").value;
@@ -101,29 +92,7 @@ return false;
 
 
 
-function regEvent() {
-  var name = 'temp';
-  var mail = 'temp';
-  var phone = 'temp';
-  var event = document.getElementById("event").value;
-  // Returns successful data submission message when the entered information is stored in database.
-  var dataString = 'event1=' + event;
-  if (name == '' || mail == '' || phone == '') {
-  alert("Please Fill All Fields");
-  } else {
-  // AJAX code to submit form.
-  jQuery.ajax({
-  type: "POST",
-  url: "registerevent.php",
-  data: dataString,
-  cache: false,
-  success: function(html) {
-  alert(html);
-  }
-  });
-  }
-  return false;
-}
+
 
 function regAmbassador() {
 var name = document.getElementById("name").value;
@@ -204,39 +173,18 @@ alert("Please Fill All Fields");
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
-url: "loginuser.php",
+url: "assets/php/loginadmin.php",
 data: dataString,
 cache: false,
 success: function(html) {
-alert(html);
-location.reload(true);
+if(html.startsWith("Logged")){window.location = "main.html";}
+else{alert(html);}
 }
 });
 }
 return false;
 }
 
-function loginAdmin() {
-var mail = document.getElementById("mail").value;
-var password = document.getElementById("password").value;
-// Returns successful data submission message when the entered information is stored in database.
-var dataString = '&mail1=' + mail + '&password1=' + password;
-if (mail == '' || password == '') {
-alert("Please Fill All Fields");
-} else {
-// AJAX code to submit form.
-jQuery.ajax({
-type: "POST",
-url: "loginadmin.php",
-data: dataString,
-cache: false,
-success: function(html) {
-alert(html);
-}
-});
-}
-return false;
-}
 
 function forgotPassword() {
 var mail = document.getElementById("mail").value;
