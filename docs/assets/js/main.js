@@ -1,24 +1,3 @@
-$(window).on('load', function() {
-var fileName = location.href.split("/").slice(-1);
-if(fileName == 'borrowed-books.html')
-{
-
-  var dataString = '&roll1=' + roll;
-
-  jQuery.ajax({
-  type: "POST",
-  url: "assets/php/borrow.php",
-  data: dataString,
-  cache: false,
-  success: function(html) {
-  document.getElementById('tablebody').innerHTML=html;
-  }
-  });
-  }
-  return false;
-
-}
-});
 
 function loginUser() {
 var roll = document.getElementById("roll").value;
@@ -29,6 +8,7 @@ if (roll == '' || password == '') {
 alert("Please Fill All Fields");
 } else {
 // AJAX code to submit form.
+console.log("Gowtham is mass");
 jQuery.ajax({
 type: "POST",
 url: "assets/php/loginuser.php",
