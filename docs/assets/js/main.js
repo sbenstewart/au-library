@@ -1,12 +1,3 @@
-function hide() {
-  var x = document.getElementById("submenu");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
 function regUser() {
 var name = document.getElementById("name").value;
 var mail = document.getElementById("mail").value;
@@ -194,22 +185,22 @@ return false;
 
 
 function loginUser() {
-var mail = document.getElementById("mail").value;
+var roll = document.getElementById("roll").value;
 var password = document.getElementById("password").value;
 // Returns successful data submission message when the entered information is stored in database.
-var dataString = '&mail1=' + mail + '&password1=' + password;
-if (mail == '' || password == '') {
+var dataString = '&roll1=' + roll + '&password1=' + password;
+if (roll == '' || password == '') {
 alert("Please Fill All Fields");
 } else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
-url: "loginuser.php",
+url: "assets/php/loginuser.php",
 data: dataString,
 cache: false,
 success: function(html) {
 alert(html);
-location.reload(true);
+if(html.startsWith("Logged")){window.location = "borrowed-books.html";}
 }
 });
 }
