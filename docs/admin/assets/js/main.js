@@ -23,6 +23,25 @@ return false;
 }
 
 
+function changeFine() {
+var fine = document.getElementById("fine").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&fine1=' + fine;
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/changefine.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+  alert(html);
+}
+});
+return false;
+}
+
+
 
 function forgotPassword() {
 var roll = document.getElementById("roll").value;
