@@ -118,6 +118,23 @@ document.getElementById('tablebody').innerHTML=html;
 return false;
 }
 
+function pendingBook() {
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&roll1=' + 'temp';
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/borrowedbook.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+document.getElementById('tablebody').innerHTML=html;
+}
+});
+return false;
+}
+
 
 function searchBook() {
 var book = document.getElementById("book").value;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 22, 2019 at 05:48 PM
+-- Generation Time: Feb 22, 2019 at 06:01 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -30,7 +30,6 @@ USE `library`;
 -- Creation: Feb 20, 2019 at 03:41 AM
 --
 
-DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `id` int(10) NOT NULL,
   `email` varchar(36) NOT NULL,
@@ -47,7 +46,6 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 --
 -- Triggers `admin`
 --
-DROP TRIGGER IF EXISTS `returndateinsert`;
 DELIMITER $$
 CREATE TRIGGER `returndateinsert` BEFORE INSERT ON `admin` FOR EACH ROW UPDATE `issued` set `returndate`= ADDDATE(CURDATE(),(SELECT `value` FROM `config` WHERE `key`='returndays'))
 $$
@@ -61,7 +59,6 @@ DELIMITER ;
 -- Creation: Feb 22, 2019 at 03:30 PM
 --
 
-DROP TABLE IF EXISTS `book`;
 CREATE TABLE `book` (
   `id` int(11) NOT NULL,
   `isbn` varchar(20) NOT NULL,
@@ -94,7 +91,6 @@ INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publi
 -- Last update: Feb 22, 2019 at 05:06 PM
 --
 
-DROP TABLE IF EXISTS `config`;
 CREATE TABLE `config` (
   `key1` varchar(100) NOT NULL,
   `value1` varchar(100) NOT NULL
@@ -117,7 +113,6 @@ INSERT INTO `config` (`key1`, `value1`) VALUES
 -- Creation: Feb 19, 2019 at 04:19 PM
 --
 
-DROP TABLE IF EXISTS `history`;
 CREATE TABLE `history` (
   `id` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
@@ -130,7 +125,6 @@ CREATE TABLE `history` (
 --
 -- Triggers `history`
 --
-DROP TRIGGER IF EXISTS `dec-remaining`;
 DELIMITER $$
 CREATE TRIGGER `dec-remaining` AFTER INSERT ON `history` FOR EACH ROW UPDATE book SET `remaining` = `remaining` + 1 WHERE ID = NEW.BOOKID
 $$
@@ -144,7 +138,6 @@ DELIMITER ;
 -- Creation: Feb 20, 2019 at 03:54 AM
 --
 
-DROP TABLE IF EXISTS `issued`;
 CREATE TABLE `issued` (
   `id` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
@@ -164,7 +157,6 @@ INSERT INTO `issued` (`id`, `userid`, `bookid`, `issuedate`, `returndate`, `fine
 --
 -- Triggers `issued`
 --
-DROP TRIGGER IF EXISTS `history`;
 DELIMITER $$
 CREATE TRIGGER `history` AFTER DELETE ON `issued` FOR EACH ROW -- Edit trigger body code below this line. Do not edit lines above this one
 BEGIN
@@ -172,12 +164,10 @@ INSERT into history VALUES (old.id,old.userid,old.bookid,old.issuedate,old.retur
 END
 $$
 DELIMITER ;
-DROP TRIGGER IF EXISTS `inc-remaining`;
 DELIMITER $$
 CREATE TRIGGER `inc-remaining` AFTER INSERT ON `issued` FOR EACH ROW UPDATE book SET `remaining` = `remaining` - 1 WHERE ID = NEW.BOOKID
 $$
 DELIMITER ;
-DROP TRIGGER IF EXISTS `issueddateinsert`;
 DELIMITER $$
 CREATE TRIGGER `issueddateinsert` BEFORE INSERT ON `issued` FOR EACH ROW SET NEW.issuedate = CURDATE()
 $$
@@ -191,7 +181,6 @@ DELIMITER ;
 -- Creation: Feb 20, 2019 at 04:21 AM
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL COMMENT 'id for db access',
   `reg` varchar(16) NOT NULL COMMENT 'roll number given for each student in the college',
@@ -298,7 +287,6 @@ DELIMITER $$
 --
 -- Events
 --
-DROP EVENT `fines`$$
 CREATE DEFINER=`root`@`localhost` EVENT `fines` ON SCHEDULE EVERY 1 DAY STARTS '2019-02-19 22:23:06' ON COMPLETION NOT PRESERVE ENABLE DO update issued set fine=datediff(issued.issuedate,curdate())*(SELECT value from config where `key`='fine') where datediff(issued.issuedate,curdate())>(SELECT value from config where `key`='fine')$$
 
 DELIMITER ;
