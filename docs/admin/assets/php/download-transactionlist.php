@@ -2,7 +2,7 @@
 require_once 'dbconfig.php';
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-      $sql = "SELECT user.cid,user.name,user.emailid,user.phoneno,user.college,user.year,user.course,user.dept,accomodation.entrydate,accomodation.entrytime,accomodation.hours FROM accomodation LEFT JOIN user ON accomodation.id = user.cid";
+      $sql = "SELECT book.isbn,book.name,book.author,issued.issuedate,issued.returndate,book.remaining FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user))";
       //Prepare our SQL query.
       $statement = $conn->prepare($sql);
       //Executre our SQL query.
@@ -20,11 +20,11 @@ try {
           }
       }
       //Setup the filename that our CSV will have when it is downloaded.
-      $fileName = 'mysql-accomodation.csv';
+      $fileName = 'mysql-transaction.csv';
       ob_clean();
       header("Pragma: no-cache");
       header('Content-Type: application/octet-stream');
-      header('Content-Disposition: attachment;filename=accomodation.csv');
+      header('Content-Disposition: attachment;filename=transaction.csv');
 
       //Open up a file pointer
       $fp = fopen('php://output', 'w');

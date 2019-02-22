@@ -117,6 +117,19 @@
             <div class="main-content-inner">
                 <div class="row">
 
+                  <div class="col-12 mt-5">
+                      <div class="card">
+                          <div class="card-body">
+                              <h3 class="header-title">Search details</h3>
+                              <label> Click the button below to load the history of you. We really value your privacy.</label>
+                              <br>
+
+                              <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="pendingBook()">Check pending books</button>
+
+                          </div>
+                      </div>
+                  </div>
+
 
                     <!-- table primary start -->
                     <div class="col-lg-12 mt-5">
@@ -135,37 +148,7 @@
                                                     <th scope="col">Fine Amount(INR)</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Code 1</td>
-                                                    <td>Book 1</td>
-                                                    <td>Student 1</td>
-                                                    <td>23</td>
-
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Code 2</td>
-                                                    <td>Book 2</td>
-                                                    <td>Student 2</td>
-                                                    <td>2</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Code 3</td>
-                                                    <td>Book 3</td>
-                                                    <td>Student 3</td>
-                                                    <td>3</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Code 4</td>
-                                                    <td>This is a book with a really long title that needs to be put as a whole.</td>
-                                                    <td>Student 4</td>
-                                                    <td>13</td>
-                                                </tr>
-                                            </tbody>
+                                            <tbody id="tablebody"></tbody>
                                         </table>
                                     </div>
                                 </div>
