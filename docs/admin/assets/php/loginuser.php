@@ -7,23 +7,19 @@ try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
-  $sql = "SELECT COUNT(*) from user where emailid='$mail2' and password='$password2'";
+  $sql = "SELECT COUNT(*) from admin where email='$mail2' and password='$password2'";
+  
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT cid,name from user where emailid='$mail2' and password='$password2'") as $row)
+        foreach ($conn->query("SELECT id from admin where email='$mail2' and password='$password2'") as $row)
         {
-          $id = $row['cid'];
-          $name = $row['name'];
+          $admin = $row['id'];
           session_start();
-          $_SESSION["cid"]=$id;
-          $_SESSION["name"]=$name;
+          $_SESSION["admin"]=$admin;
           echo "Logged in as ";
-          echo $_SESSION["name"];
-          echo " with cid. ";
-          echo $id;
-          echo "Please note this number for future reference.";
+          echo $_SESSION["admin"];
 
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
@@ -38,11 +34,6 @@ try {
         else {
         echo "Submission failed. Try later.";
         }
-
-
-
-
-
 
 
 } catch (PDOException $pe) {
