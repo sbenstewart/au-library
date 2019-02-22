@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 20, 2019 at 05:55 PM
+-- Generation Time: Feb 22, 2019 at 05:48 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -58,7 +58,7 @@ DELIMITER ;
 --
 -- Table structure for table `book`
 --
--- Creation: Feb 12, 2019 at 11:53 AM
+-- Creation: Feb 22, 2019 at 03:30 PM
 --
 
 DROP TABLE IF EXISTS `book`;
@@ -68,35 +68,43 @@ CREATE TABLE `book` (
   `name` varchar(250) NOT NULL,
   `author` varchar(250) NOT NULL,
   `count` int(11) NOT NULL DEFAULT '1' COMMENT 'Number of books',
-  `remaining` int(11) NOT NULL DEFAULT '1'
+  `remaining` int(11) NOT NULL DEFAULT '1',
+  `publisher` varchar(400) NOT NULL,
+  `edition` varchar(10) NOT NULL,
+  `price` int(11) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `reference` varchar(3) NOT NULL,
+  `department` varchar(100) NOT NULL,
+  `row` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`) VALUES
-(1, 'test', 'test', 'test', 12, 12);
+INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publisher`, `edition`, `price`, `subject`, `reference`, `department`, `row`) VALUES
+(1, 'test', 'test', 'test', 12, 12, '', '', 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `config`
 --
--- Creation: Feb 18, 2019 at 05:27 PM
+-- Creation: Feb 22, 2019 at 04:43 PM
+-- Last update: Feb 22, 2019 at 05:06 PM
 --
 
 DROP TABLE IF EXISTS `config`;
 CREATE TABLE `config` (
-  `key` varchar(100) NOT NULL,
-  `value` varchar(100) NOT NULL
+  `key1` varchar(100) NOT NULL,
+  `value1` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `config`
 --
 
-INSERT INTO `config` (`key`, `value`) VALUES
+INSERT INTO `config` (`key1`, `value1`) VALUES
 ('fine', '3'),
 ('borrow', '5'),
 ('returndays', '45');
