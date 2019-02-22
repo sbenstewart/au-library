@@ -59,6 +59,24 @@ success: function(html) {
 return false;
 }
 
+function changeReturn() {
+var fine = document.getElementById("return").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&fine1=' + fine;
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/changereturn.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+  alert(html);
+}
+});
+return false;
+}
+
 
 
 function forgotPassword() {

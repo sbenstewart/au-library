@@ -13,15 +13,15 @@ try {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT value1 from config where key1='borrow'") as $row)
+        foreach ($conn->query("SELECT value1 from config where key1='returndays'") as $row)
         {
           $fine1 = $row['value1'];
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
 
-        $count = $conn->exec("UPDATE config SET value1='$fine2' where key1='borrow'");
+        $count = $conn->exec("UPDATE config SET value1='$fine2' where key1='returndays'");
 
-        echo "Birrow limit changed from $fine1 to $fine2";
+        echo "Return date changed from $fine1 to $fine2";
 
         }
         /* No rows matched -- do something else */
