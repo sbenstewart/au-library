@@ -121,7 +121,7 @@
                                   </div>
 
 
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Search</button>
+                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchBook()">Search</button>
                               </form>
                           </div>
                       </div>
@@ -143,37 +143,8 @@
                                                     <th scope="col">Availability</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Code 1</td>
-                                                    <td>Book 1</td>
-                                                    <td>Author 1</td>
-                                                    <td>Yes</td>
+                                            <tbody id="tablebody"></tbody>
 
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Code 2</td>
-                                                    <td>Book 2</td>
-                                                    <td>Author 2</td>
-                                                    <td>Yes</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Code 3</td>
-                                                    <td>Book 3</td>
-                                                    <td>Author 3</td>
-                                                    <td>Yes</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Code 4</td>
-                                                    <td>This is a book with a really long title that needs to be put as a whole.</td>
-                                                    <td>There are a list of authors whose names have to be uploaded.</td>
-                                                    <td>Yes</td>
-                                                </tr>
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -206,6 +177,7 @@
     <script src="assets/js/metisMenu.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script type='text/javascript' src='assets/js/main.js'></script>
 
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
