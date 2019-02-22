@@ -199,8 +199,11 @@ url: "assets/php/loginuser.php",
 data: dataString,
 cache: false,
 success: function(html) {
-alert(html);
-if(html.startsWith("Logged")){window.location = "borrowed-books.html";}
+if(html.startsWith("Logged"))
+{window.location = "borrowed-books.html";}
+else {
+  alert(html);
+}
 }
 });
 }
