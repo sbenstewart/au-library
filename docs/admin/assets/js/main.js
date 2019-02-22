@@ -41,6 +41,24 @@ success: function(html) {
 return false;
 }
 
+function changeBorrow() {
+var fine = document.getElementById("borrow").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&fine1=' + fine;
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/changeborrow.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+  alert(html);
+}
+});
+return false;
+}
+
 
 
 function forgotPassword() {
