@@ -143,13 +143,20 @@
 
                                           </div>
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <label for="email">Email address</label>
+                                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
 
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                <label for="phone">Phone number</label>
+                                                <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter ten digit number">
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control" id="password" placeholder="Password">
                                             </div>
 
                                             <div class="form-group">
@@ -162,28 +169,27 @@
                                                 </select>
                                             </div>
 
-                                            <p class="text-muted mb-3 mt-4 d-block">Year of joining:</p>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="year1" name="year" class="custom-control-input">
-                                                <label class="custom-control-label" for="year1">2016</label>
+                                            <div class="form-group">
+                                                <label class="col-form-label">Course</label>
+                                                <select id="course" class="custom-select">
+                                                    <option selected="">Chose your course</option>
+                                                    <option value="B.E.">B.E.</option>
+                                                    <option value="M.E.">M.E.</option>
+                                                    <option value="M.Sc.">M.Sc.</option>
+                                                    <option value="Ph.D.">Ph.D.</option>
+                                                </select>
                                             </div>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="year2" name="year" class="custom-control-input">
-                                                <label class="custom-control-label" for="year2">2017</label>
+                                            <div class="form-group">
+                                                <label for="year">Year of Joining</label>
+                                                <input type="text" class="form-control" id="year" placeholder="2018">
                                             </div>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="year3" name="year" class="custom-control-input">
-                                                <label class="custom-control-label" for="year3">2018</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="year4" name="year" class="custom-control-input">
-                                                <label class="custom-control-label" for="year4">2019</label>
-                                            </div>
+
+
                                             <br>
 
 
 
-                                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="insertStudent()">Submit</button>
                                         </form>
                                     </div>
                                 </div>
@@ -220,6 +226,7 @@
     <script src="assets/js/metisMenu.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script type='text/javascript' src='assets/js/main.js'></script>
 
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
