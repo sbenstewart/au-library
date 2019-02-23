@@ -124,7 +124,7 @@ var dataString = '&roll1=' + 'temp';
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
-url: "assets/php/borrowedbook.php",
+url: "assets/php/pendingbook.php",
 processData: false,
 data: dataString,
 cache: false,
