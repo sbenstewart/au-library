@@ -6,6 +6,7 @@ $roll2 = $_POST['roll1'];
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+  #$conn = new PDO("mysql:host=$host;dbname=$dbname", $username, "");
 
   $sql = "SELECT COUNT(*) from user where reg='$roll2' and password='$password2'";
   if ($res = $conn->query($sql)) {
@@ -40,7 +41,8 @@ try {
 
 
 } catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+    #die("Could not connect to the server. Please check your internet connection.");
+    die($pe);
 }
  // Connection Closed
 ?>
