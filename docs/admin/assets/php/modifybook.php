@@ -17,8 +17,8 @@ $row2 = $_POST['row1'];
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-  $count = $conn->exec("INSERT INTO book (isbn,name,author,count,remaining,publisher,edition,price,subject,reference,department,row) VALUES ('$bookid2','$name2','$author2',$count2,$count2,'$publisher2','$edition2',$price2,'$subject2','yes','$department2','$row2')");
-  echo "Book has been inserted.";
+  $count = $conn->exec("UPDATE book SET name='$name2',author='$author2',count='$count2',remaining='$count2',publisher='$publisher2',edition='$edition2',price='$price2',subject='$subject2',reference='yes',department='$department2',row='$row2' where isbn='$bookid2'");
+  echo "Book has been modified.";
 
 
 } catch (PDOException $pe) {

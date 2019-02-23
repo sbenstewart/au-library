@@ -166,6 +166,37 @@ alert(html);
 return false;
 }
 
+function modifyBook() {
+var bookid = document.getElementById("bookid").value;
+var name = document.getElementById("name").value;
+var author = document.getElementById("author").value;
+var count = document.getElementById("count").value;
+var publisher = document.getElementById("publisher").value;
+var edition = document.getElementById("edition").value;
+var price = document.getElementById("price").value;
+var subject = document.getElementById("subject").value;
+var department = document.getElementById("department").value;
+var row = document.getElementById("row").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&bookid1=' + bookid + '&name1=' + name + '&author1=' + author + '&count1=' + count + '&publisher1=' + publisher + '&edition1=' + edition + '&price1=' + price + '&subject1=' + subject + '&department1=' + department + '&row1=' + row;
+if (bookid==''||name==''||author==''||count==''||publisher==''||edition==''||price==''||subject==''||department==''||row=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/modifybook.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 
 function searchBook() {
 var book = document.getElementById("book").value;
