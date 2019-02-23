@@ -1,3 +1,32 @@
+function insertStudent() {
+var name = document.getElementById("name").value;
+var reg = document.getElementById("reg").value;
+var email = document.getElementById("email").value;
+var phone = document.getElementById("phone").value;
+var password = document.getElementById("password").value;
+var department = document.getElementById("department").value;
+var course = document.getElementById("course").value;
+var year = document.getElementById("year").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&name1=' + name + '&reg1=' + reg + '&email1=' + email + '&phone1=' + phone + '&password1=' + password + '&department1=' + department + '&course1=' + course + '&year1=' + year;
+if (name==''||reg==''||email==''||phone==''||password==''||department==''||course==''||year=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/insertstudent.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 function loginUser() {
 var mail = document.getElementById("mail").value;
 var password = document.getElementById("password").value;
