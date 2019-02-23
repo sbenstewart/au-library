@@ -56,6 +56,24 @@ alert(html);
 return false;
 }
 
+function searchStudent() {
+  var roll = document.getElementById("roll").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&roll1=' + roll;
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/searchstudent.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+document.getElementById('tablebody').innerHTML=html;
+}
+});
+return false;
+}
+
 function loginUser() {
 var mail = document.getElementById("mail").value;
 var password = document.getElementById("password").value;
