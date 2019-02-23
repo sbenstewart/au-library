@@ -45,37 +45,17 @@
             </div>
             <div class="main-menu">
                 <div class="menu-inner">
-                  <nav>
-                      <ul class="metismenu" id="menu">
-                        <li><a href="main.html"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
+                    <nav>
+                        <ul class="metismenu" id="menu">
 
+                            <li><a href="borrowed-books.html"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
+                            <li class="active"><a href="search-books.html"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
+                            <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                            <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                            <li><a href="about.html#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
-                        <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
-                            <ul class="collapse">
-                                <li><a href="student-signup.html">Signup</a></li>
-                                <li><a href="student-change-details.html">Change details</a></li>
-                                <li><a href="search-students.html">Search</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="active">
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
-                            <ul class="collapse">
-                                <li><a href="book-entry.html">New entry</a></li>
-                                <li><a href="modify-book-entry.html">Change details</a></li>
-                                <li class="active"><a href="search-books.html">Search</a></li>
-
-                            </ul>
-                        </li>
-                        <li><a href="fines.html"><i class="fa fa-university"></i> <span>Fines</span></a></li>
-                        <li><a href="superuser.html"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
-                        <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                        <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                        <li><a href="about.html#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
-
-                      </ul>
-                  </nav>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -104,7 +84,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Details</a>
                                 <a class="dropdown-item" href="#">Log Out</a>
@@ -141,7 +121,7 @@
                                   </div>
 
 
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Search</button>
+                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchBook()">Search</button>
                               </form>
                           </div>
                       </div>
@@ -160,40 +140,11 @@
                                                     <th scope="col">Book ID</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Author</th>
-                                                    <th scope="col">Count</th>
+                                                    <th scope="col">Availability</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Code 1</td>
-                                                    <td>Book 1</td>
-                                                    <td>Author 1</td>
-                                                    <td>23</td>
+                                            <tbody id="tablebody"></tbody>
 
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Code 2</td>
-                                                    <td>Book 2</td>
-                                                    <td>Author 2</td>
-                                                    <td>2</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Code 3</td>
-                                                    <td>Book 3</td>
-                                                    <td>Author 3</td>
-                                                    <td>3</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Code 4</td>
-                                                    <td>This is a book with a really long title that needs to be put as a whole.</td>
-                                                    <td>There are a list of authors whose names have to be uploaded.</td>
-                                                    <td>13</td>
-                                                </tr>
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -226,6 +177,7 @@
     <script src="assets/js/metisMenu.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script type='text/javascript' src='assets/js/main.js'></script>
 
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
