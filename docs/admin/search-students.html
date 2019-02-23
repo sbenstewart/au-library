@@ -121,16 +121,16 @@
                       <div class="card">
                           <div class="card-body">
                               <h4 class="header-title">Search details</h4>
-                              <form action="#">
+                              <form>
                                   <div class="form-group">
-                                      <label for="book">Student roll number</label>
-                                      <input type="text" class="form-control" id="book" aria-describedby="emailHelp" placeholder="Enter student roll number">
+                                      <label for="roll">Student roll number</label>
+                                      <input type="text" class="form-control" id="roll" aria-describedby="emailHelp" placeholder="Enter student roll number">
                                   </div>
 
 
 
 
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Search</button>
+                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchStudent()">Search</button>
                               </form>
                           </div>
                       </div>
@@ -152,37 +152,7 @@
                                                     <th scope="col">Fine (INR)</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Code 1</td>
-                                                    <td>Book 1</td>
-                                                    <td>19/12/1998</td>
-                                                    <td>23</td>
-
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Code 2</td>
-                                                    <td>Book 2</td>
-                                                    <td>19/12/1998</td>
-                                                    <td>2</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Code 3</td>
-                                                    <td>Book 3</td>
-                                                    <td>19/12/1998</td>
-                                                    <td>3</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Code 4</td>
-                                                    <td>This is a book with a really long title that needs to be put as a whole.</td>
-                                                    <td>19/12/1998</td>
-                                                    <td>13</td>
-                                                </tr>
-                                            </tbody>
+                                            <tbody id="tablebody"></tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -215,6 +185,7 @@
     <script src="assets/js/metisMenu.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script type='text/javascript' src='assets/js/main.js'></script>
 
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>

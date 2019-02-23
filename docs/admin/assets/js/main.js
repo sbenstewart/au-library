@@ -1,3 +1,79 @@
+function insertStudent() {
+var name = document.getElementById("name").value;
+var reg = document.getElementById("reg").value;
+var email = document.getElementById("email").value;
+var phone = document.getElementById("phone").value;
+var password = document.getElementById("password").value;
+var department = document.getElementById("department").value;
+var course = document.getElementById("course").value;
+var year = document.getElementById("year").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&name1=' + name + '&reg1=' + reg + '&email1=' + email + '&phone1=' + phone + '&password1=' + password + '&department1=' + department + '&course1=' + course + '&year1=' + year;
+if (name==''||reg==''||email==''||phone==''||password==''||department==''||course==''||year=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/insertstudent.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
+function modifyStudent() {
+var name = document.getElementById("name").value;
+var reg = document.getElementById("reg").value;
+var email = document.getElementById("email").value;
+var phone = document.getElementById("phone").value;
+var password = document.getElementById("password").value;
+var department = document.getElementById("department").value;
+var course = document.getElementById("course").value;
+var year = document.getElementById("year").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&name1=' + name + '&reg1=' + reg + '&email1=' + email + '&phone1=' + phone + '&password1=' + password + '&department1=' + department + '&course1=' + course + '&year1=' + year;
+if (name==''||reg==''||email==''||phone==''||password==''||department==''||course==''||year=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/modifystudent.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
+function searchStudent() {
+  var roll = document.getElementById("roll").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&roll1=' + roll;
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/searchstudent.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+document.getElementById('tablebody').innerHTML=html;
+}
+});
+return false;
+}
+
 function loginUser() {
 var mail = document.getElementById("mail").value;
 var password = document.getElementById("password").value;
@@ -124,7 +200,7 @@ var dataString = '&roll1=' + 'temp';
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
-url: "assets/php/borrowedbook.php",
+url: "assets/php/pendingbook.php",
 processData: false,
 data: dataString,
 cache: false,
@@ -132,6 +208,68 @@ success: function(html) {
 document.getElementById('tablebody').innerHTML=html;
 }
 });
+return false;
+}
+
+function insertBook() {
+var bookid = document.getElementById("bookid").value;
+var name = document.getElementById("name").value;
+var author = document.getElementById("author").value;
+var count = document.getElementById("count").value;
+var publisher = document.getElementById("publisher").value;
+var edition = document.getElementById("edition").value;
+var price = document.getElementById("price").value;
+var subject = document.getElementById("subject").value;
+var department = document.getElementById("department").value;
+var row = document.getElementById("row").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&bookid1=' + bookid + '&name1=' + name + '&author1=' + author + '&count1=' + count + '&publisher1=' + publisher + '&edition1=' + edition + '&price1=' + price + '&subject1=' + subject + '&department1=' + department + '&row1=' + row;
+if (bookid==''||name==''||author==''||count==''||publisher==''||edition==''||price==''||subject==''||department==''||row=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/insertbook.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
+function modifyBook() {
+var bookid = document.getElementById("bookid").value;
+var name = document.getElementById("name").value;
+var author = document.getElementById("author").value;
+var count = document.getElementById("count").value;
+var publisher = document.getElementById("publisher").value;
+var edition = document.getElementById("edition").value;
+var price = document.getElementById("price").value;
+var subject = document.getElementById("subject").value;
+var department = document.getElementById("department").value;
+var row = document.getElementById("row").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&bookid1=' + bookid + '&name1=' + name + '&author1=' + author + '&count1=' + count + '&publisher1=' + publisher + '&edition1=' + edition + '&price1=' + price + '&subject1=' + subject + '&department1=' + department + '&row1=' + row;
+if (bookid==''||name==''||author==''||count==''||publisher==''||edition==''||price==''||subject==''||department==''||row=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/modifybook.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
 return false;
 }
 
