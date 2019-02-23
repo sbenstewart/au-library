@@ -7,6 +7,7 @@ try {
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
   $name=$_SESSION["name"];
+  #var_dump($name);
 
   $sql = "SELECT * FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))";
   if ($res = $conn->query($sql)) {
@@ -30,7 +31,8 @@ try {
           echo $author2;
           echo "</td><td>";
           $temp2 = $row['returndate'];
-          var_dump($temp2);
+          #var_dump($temp2);
+          echo $temp2;
           echo "</td><td>";
           $remaining2 = $row['remaining'];
           $availability = 'Yes';
