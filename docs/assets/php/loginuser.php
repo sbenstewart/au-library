@@ -4,9 +4,8 @@ $password2 = $_POST['password1'];
 $roll2 = $_POST['roll1'];
 
 try {
-
-  $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-
+  $conn = new PDO('mysql:host="localhost";dbname=$dbname', $username, $password);
+  var_dump('podaa');
   $sql = "SELECT COUNT(*) from user where reg='$roll2' and password='$password2'";
   if ($res = $conn->query($sql)) {
 
