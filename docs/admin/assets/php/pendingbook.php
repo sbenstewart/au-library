@@ -15,7 +15,7 @@ try {
       if ($res->fetchColumn() > 0) {
 
                   echo '<tbody>';
-        foreach ($conn->query("SELECT book.id,book.name as bname,user.name as uname,user.phone,issued.fine FROM (issued LEFT JOIN user ON issued.userid=user.id) LEFT JOIN book ON book.id = issued.bookid") as $row)
+        foreach ($conn->query("SELECT book.id,book.name as bname,user.name as uname,issued.fine FROM (issued LEFT JOIN user ON issued.userid=user.id) LEFT JOIN book ON book.id = issued.bookid") as $row)
         {
 
           echo "<tr><th scope='row'>";
@@ -28,9 +28,6 @@ try {
           echo $bname2;
           echo "</td><td>";
           $uname2 = $row['uname'];
-          echo $uname2;
-          echo "</td><td>";
-          $uname2 = $row['phone'];
           echo $uname2;
           echo "</td><td>";
           $fine2 = $row['fine'];
