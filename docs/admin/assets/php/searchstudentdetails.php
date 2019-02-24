@@ -6,22 +6,22 @@ try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
+  $user='user';
 
-  $sql = "SELECT name,course,dept,year,mail,phone FROM user WHERE reg='$roll2'";
+  $sql = "SELECT * FROM $user WHERE reg='$roll2'";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT name,course,dept,year,mail,phone FROM user WHERE reg='$roll2'") as $row)
+        foreach ($conn->query("SELECT name,course,dept,year,mail,phone FROM $user WHERE reg='$roll2'") as $row)
         {
 
           echo '<tbody>';
           echo "<tr><th scope='row'>";
-          echo $count;
-          echo "</td><td>";
+
           $name2 = $row['name'];
           echo $name2;
-          echo "</td><td>";
+          echo "</th><td>";
           $course2 = $row['course'];
           echo $course2;
           echo "</td><td>";
@@ -36,7 +36,6 @@ try {
           echo "</td><td>";
           $phone2 = $row['phone'];
           echo $phone2;
-
           echo "</td></tr></tbody>";
           $count = $count+1;
 
@@ -47,12 +46,10 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "";
 
         }
         }
         else {
-        echo "";
         }
 
 

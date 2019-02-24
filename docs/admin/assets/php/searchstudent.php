@@ -12,7 +12,7 @@ try {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT book.isbn,book.name,issued.returndate,issued.fine FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2'))") as $row)
+        foreach ($conn->query("SELECT book.isbn,book.name,issued.returndate,issued.fine FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2'))") as $row)
         {
 
           echo '<tbody>';
