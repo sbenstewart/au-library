@@ -30,11 +30,29 @@ try {
           $author2 = $row['author'];
           echo $author2;
           echo "</td><td>";
+          $count2 = $row['count'];
+          echo $count2;
+          echo "</td><td>";
           $remaining2 = $row['remaining'];
-          $availability = 'Yes';
-          if($remaining2==0)
-          {$availability='No';}
-          echo $availability;
+          echo $remaining2;
+          echo "</td><td>";
+          $author2 = $row['edition'];
+          echo $author2;
+          echo "</td><td>";
+          $author2 = $row['price'];
+          echo $author2;
+          echo "</td><td>";
+          $author2 = $row['subject'];
+          echo $author2;
+          echo "</td><td>";
+          $author2 = $row['reference'];
+          echo $author2;
+          echo "</td><td>";
+          $author2 = $row['department'];
+          echo $author2;
+          echo "</td><td>";
+          $author2 = $row['row'];
+          echo $author2;
           echo "</td></tr></tbody>";
           $count = $count+1;
 
