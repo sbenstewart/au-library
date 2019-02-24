@@ -20,7 +20,7 @@ try {
         }
 
   $count = $conn->exec("UPDATE book SET reference='No' WHERE isbn='$book2'");
-  echo "Book has been made as Reference copy.";
+  echo "Book has been made a non-Reference copy.";
 
 
 } catch(Exception $e) {
