@@ -27,6 +27,29 @@ alert(html);
 return false;
 }
 
+function insertIssued() {
+var book = document.getElementById("book1").value;
+var student = document.getElementById("student1").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book + '&student1=' + student;
+if (book==''||student=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/insertissued.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 function modifyStudent() {
 var name = document.getElementById("name").value;
 var reg = document.getElementById("reg").value;
