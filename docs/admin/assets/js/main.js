@@ -57,7 +57,7 @@ return false;
 }
 
 function searchStudent() {
-  var roll = document.getElementById("roll").value;
+var roll = document.getElementById("roll").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&roll1=' + roll;
 // AJAX code to submit form.
