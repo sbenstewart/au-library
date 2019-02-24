@@ -30,7 +30,7 @@ try {
           echo $author2;
           echo "</td><td>";
           $temp2 = $row['returndate'];
-          var_dump($temp2);
+          echo $temp2;
           echo "</td><td>";
           $remaining2 = $row['remaining'];
           $availability = 'Yes';
