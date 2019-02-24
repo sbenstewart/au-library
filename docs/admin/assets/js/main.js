@@ -129,19 +129,46 @@ function searchStudent() {
 var roll = document.getElementById("roll").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&roll1=' + roll;
-// AJAX code to submit form.
-jQuery.ajax({
-type: "POST",
-url: "assets/php/searchstudent.php",
-processData: false,
-data: dataString,
-cache: false,
-success: function(html) {
-document.getElementById('tablebody').innerHTML=html;
+if (roll=='') {
+alert("Please Enter the roll number.");
+} else {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudent.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody').innerHTML=html;
 }
 });
+}
 return false;
 }
+
+function searchStudentDetails() {
+var roll = document.getElementById("roll1").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&roll1=' + roll;
+if (roll=='') {
+alert("Please Enter the roll number.");
+} else {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudentdetails.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody1').innerHTML=html;
+}
+});
+}
+return false;
+}
+
 
 function deleteStudent() {
 var student = document.getElementById("student3").value;
