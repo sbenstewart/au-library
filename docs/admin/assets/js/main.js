@@ -171,7 +171,7 @@ return false;
 
 
 function deleteStudent() {
-var student = document.getElementById("student3").value;
+var student = document.getElementById("student4").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&student1=' + student;
 if (student=='') {

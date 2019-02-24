@@ -19,6 +19,12 @@ try {
           throw new Exception("Wrong student register number.");
         }
         }
+  $sql = "SELECT COUNT(*) FROM issued where userid=(SELECT id FROM user where reg = '$student2')";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+          throw new Exception("Student has pending books.");
+        }
+        }
   $count = $conn->exec("DELETE FROM `user` WHERE user.reg = '$student2'");
   echo "Student record has been deleted.";
 

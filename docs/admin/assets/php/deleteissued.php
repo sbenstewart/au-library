@@ -32,7 +32,7 @@ try {
         }
         }
   $count = $conn->exec("DELETE FROM issued WHERE userid='$userid' AND bookid='$bookid'");
-  echo "Student record has been inserted.";
+  echo "Book has been received from the student.";
 
 
 } catch(Exception $e) {
