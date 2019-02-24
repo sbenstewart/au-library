@@ -333,6 +333,28 @@ alert(html);
 return false;
 }
 
+function addReference() {
+var book = document.getElementById("book5").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book;
+if (book=='') {
+alert("Please Enter Book ID");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/addreference.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 function modifyBook() {
 var bookid = document.getElementById("bookid").value;
 var name = document.getElementById("name").value;
