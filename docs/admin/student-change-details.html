@@ -131,70 +131,64 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title">Change Student Details</h4>
-                                        <form>
 
+
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="reg">Register number</label>
+                                            <input type="text" class="form-control" id="reg" aria-describedby="emailHelp" placeholder="Enter your register number">
+
+                                        </div>
                                           <div class="form-group">
-                                              <label for="reg">Register number</label>
-                                              <input type="text" class="form-control" id="reg" aria-describedby="emailHelp" placeholder="Enter your register number">
+                                              <label for="email">Email address</label>
+                                              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
 
                                           </div>
 
                                           <div class="form-group">
-                                              <label for="name">Name</label>
-                                              <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+                                              <label for="phone">Phone number</label>
+                                              <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter ten digit number">
 
                                           </div>
 
-                                            <div class="form-group">
-                                                <label for="email">Email address</label>
-                                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="phone">Phone number</label>
-                                                <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter ten digit number">
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="password">Password</label>
-                                                <input type="password" class="form-control" id="password" placeholder="Password">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="col-form-label">Department</label>
-                                                <select id="department" class="custom-select">
-                                                    <option selected="">Chose your department</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="col-form-label">Course</label>
-                                                <select id="course" class="custom-select">
-                                                    <option selected="">Chose your course</option>
-                                                    <option value="B.E.">B.E.</option>
-                                                    <option value="M.E.">M.E.</option>
-                                                    <option value="M.Sc.">M.Sc.</option>
-                                                    <option value="Ph.D.">Ph.D.</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="year">Year of Joining</label>
-                                                <input type="text" class="form-control" id="year" placeholder="2018">
-                                            </div>
+                                          <div class="form-group">
+                                              <label for="password">Password</label>
+                                              <input type="password" class="form-control" id="password" placeholder="Password">
+                                          </div>
 
 
-                                            <br>
+                                          <div class="form-group">
+                                              <label for="department">Department</label>
+                                              <input type="text" class="form-control" id="department" placeholder="Department">
+                                          </div>
+
+                                          <div class="form-group">
+                                              <label class="col-form-label">Course</label>
+                                              <select id="course" class="custom-select">
+                                                  <option selected="">Chose your course</option>
+                                                  <option value="B.E.">B.E.</option>
+                                                  <option value="M.E.">M.E.</option>
+                                                  <option value="M.Sc.">M.Sc.</option>
+                                                  <option value="Ph.D.">Ph.D.</option>
+                                              </select>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="year">Year of Joining</label>
+                                              <input type="text" class="form-control" id="year" placeholder="2018">
+                                          </div>
+
+
+                                          <br>
 
 
 
-                                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="modifyStudent()">Submit</button>
-                                        </form>
-                                    </div>
+                                          <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="modifyStudent()">Submit</button>
+
+                                  </div>
                                 </div>
                             </div>
                             <!-- basic form end -->
