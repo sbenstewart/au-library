@@ -6,7 +6,13 @@ try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
+  if(isset($_SESSION["name"]))
+  {
   $name=$_SESSION["name"];
+  }
+  else {
+    throw new Exception("<b>You must be logged in to view the books.</b>");
+  }
 
   $sql = "SELECT * FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))";
   if ($res = $conn->query($sql)) {
@@ -82,8 +88,8 @@ try {
         }
 
 
-} catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>
