@@ -2,4 +2,4 @@
     $host = 'localhost';
     $dbname = 'library';
     $username = 'root';
-    $password = '';
+    $password = 'root';
