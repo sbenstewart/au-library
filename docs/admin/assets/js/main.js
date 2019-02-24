@@ -143,6 +143,28 @@ document.getElementById('tablebody').innerHTML=html;
 return false;
 }
 
+function deleteStudent() {
+var student = document.getElementById("student3").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&student1=' + student;
+if (student=='') {
+alert("Please enter register number of student.");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/deletestudent.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 function loginUser() {
 var mail = document.getElementById("mail").value;
 var password = document.getElementById("password").value;
