@@ -31,8 +31,8 @@ try {
           throw new Exception("Wrong student register number.");
         }
         }
-  $count = $conn->exec("INSERT INTO issued (userid,bookid,issuedate,returndate) VALUES ('$userid', '$bookid', (SELECT CURDATE()), (SELECT ADDDATE(CURDATE(),(SELECT value1 FROM config WHERE key1='returndays'))))");
-  echo "Book has been issued to the student.";
+  $count = $conn->exec("DELETE FROM issued WHERE userid='$userid' AND bookid='$bookid'");
+  echo "Student record has been inserted.";
 
 
 } catch(Exception $e) {
