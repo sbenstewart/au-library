@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'dbconfig.php';
 $fine2 = $_POST['fine1'];
 
@@ -32,8 +33,8 @@ try {
         }
 
 
-} catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

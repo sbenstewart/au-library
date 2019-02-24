@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'dbconfig.php';
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -38,8 +39,8 @@ try {
 }
 //Close the file pointer.
 fclose($fp);
-} catch (PDOException $pe) {
-    die("Could not connect to the database $dbname :" . $pe->getMessage());
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

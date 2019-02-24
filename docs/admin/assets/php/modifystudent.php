@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'dbconfig.php';
 $name2 = $_POST['name1'];
 $reg2 = $_POST['reg1'];
@@ -19,8 +20,8 @@ try {
   echo "Student record has been modified.";
 
 
-} catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'dbconfig.php';
 $book2 = $_POST['book1'];
 $student2 = $_POST['student1'];
@@ -36,7 +37,7 @@ try {
 
 
 } catch(Exception $e) {
-  echo 'Message: ' .$e->getMessage();
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>
