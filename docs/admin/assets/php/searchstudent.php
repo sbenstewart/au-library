@@ -8,6 +8,19 @@ try {
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
 
+  if(isset($_SESSION["admin"]))
+  {$name=$_SESSION["admin"];}
+  else
+  {throw new Exception("<b>You must log in.</b>");}
+  $sql = "SELECT COUNT(*) from admin where id='$name'";
+  if ($res = $conn->query($sql))
+  {
+  if ($res->fetchColumn() > 0){}
+  else{throw new Exception("<b>You must log in.</b>");}
+  }
+  else{throw new Exception("<b>You must log in.</b>");}
+
+
   $sql = "SELECT * FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2'))";
   if ($res = $conn->query($sql)) {
 

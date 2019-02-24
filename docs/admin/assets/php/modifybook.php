@@ -18,6 +18,19 @@ $row2 = $_POST['row1'];
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+  if(isset($_SESSION["admin"]))
+  {$name=$_SESSION["admin"];}
+  else
+  {throw new Exception("<b>You must log in.</b>");}
+  $sql = "SELECT COUNT(*) from admin where id='$name'";
+  if ($res = $conn->query($sql))
+  {
+  if ($res->fetchColumn() > 0){}
+  else{throw new Exception("<b>You must log in.</b>");}
+  }
+  else{throw new Exception("<b>You must log in.</b>");}
+
   $count = $conn->exec("UPDATE book SET name='$name2',author='$author2',count='$count2',remaining='$count2',publisher='$publisher2',edition='$edition2',price='$price2',subject='$subject2',reference='yes',department='$department2',row='$row2' where isbn='$bookid2'");
   echo "Book has been modified.";
 

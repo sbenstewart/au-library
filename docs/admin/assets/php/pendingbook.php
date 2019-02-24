@@ -6,7 +6,20 @@ try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
-  $name=$_SESSION["name"];
+
+  if(isset($_SESSION["admin"]))
+  {$name=$_SESSION["admin"];}
+  else
+  {throw new Exception("<b>You must log in.</b>");}
+  $sql = "SELECT COUNT(*) from admin where id='$name'";
+  if ($res = $conn->query($sql))
+  {
+  if ($res->fetchColumn() > 0){}
+  else{throw new Exception("<b>You must log in.</b>");}
+  }
+  else{throw new Exception("<b>You must log in.</b>");}
+
+
 
   $sql = "SELECT book.id,book.name,user.name,issued.fine FROM (issued LEFT JOIN user ON issued.userid=user.id) LEFT JOIN book ON book.id = issued.bookid";
   if ($res = $conn->query($sql)) {

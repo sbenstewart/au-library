@@ -3,6 +3,19 @@ session_start();
 require_once 'dbconfig.php';
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+    if(isset($_SESSION["admin"]))
+    {$name=$_SESSION["admin"];}
+    else
+    {throw new Exception("<b>You must log in.</b>");}
+    $sql = "SELECT COUNT(*) from admin where id='$name'";
+    if ($res = $conn->query($sql))
+    {
+    if ($res->fetchColumn() > 0){}
+    else{throw new Exception("<b>You must log in.</b>");}
+    }
+    else{throw new Exception("<b>You must log in.</b>");}
+
       $sql = "SELECT book.id,book.isbn,book.name,book.author,book.count,book.remaining,book.publisher,book.edition,book.price,book.subject,book.reference,book.department,book.row FROM book";
       //Prepare our SQL query.
       $statement = $conn->prepare($sql);
