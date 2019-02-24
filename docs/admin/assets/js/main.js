@@ -221,6 +221,9 @@ function changeFine() {
 var fine = document.getElementById("fine").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&fine1=' + fine;
+if (fine == '') {
+alert("Please Fill All Fields");
+} else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
@@ -232,6 +235,7 @@ success: function(html) {
   alert(html);
 }
 });
+}
 return false;
 }
 
@@ -239,6 +243,9 @@ function changeBorrow() {
 var fine = document.getElementById("borrow").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&fine1=' + fine;
+if (fine == '') {
+alert("Please Fill All Fields");
+} else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
@@ -250,6 +257,7 @@ success: function(html) {
   alert(html);
 }
 });
+}
 return false;
 }
 
@@ -257,6 +265,9 @@ function changeReturn() {
 var fine = document.getElementById("return").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&fine1=' + fine;
+if (fine == '') {
+alert("Please Fill All Fields");
+} else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
@@ -268,6 +279,7 @@ success: function(html) {
   alert(html);
 }
 });
+}
 return false;
 }
 
