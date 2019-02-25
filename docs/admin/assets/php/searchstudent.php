@@ -21,7 +21,7 @@ try {
   else{throw new Exception("<b>You must log in.</b>");}
 
 
-  $sql = "SELECT * FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2'))";
+  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2'))";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */

@@ -16,7 +16,7 @@ try {
     }
     else{throw new Exception("<b>You must log in.</b>");}
 
-      $sql = "SELECT book.isbn,book.name,book.author,issued.issuedate,issued.returndate,book.remaining FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user))";
+      $sql = "SELECT book.isbn,book.name,book.author,issued.issuedate,issued.returndate,book.remaining FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user))";
       //Prepare our SQL query.
       $statement = $conn->prepare($sql);
       //Executre our SQL query.

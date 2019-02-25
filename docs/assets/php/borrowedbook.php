@@ -14,13 +14,13 @@ try {
     throw new Exception("<b>You must be logged in to view the books.</b>");
   }
 
-  $sql = "SELECT * FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))";
+  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
 
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author,history.returndate FROM history LEFT JOIN book ON book.id = history.bookid AND history.bookid = (SELECT bookid FROM history WHERE userid = (SELECT id from user where reg='$name'))") as $row)
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,history.returndate FROM history INNER JOIN book ON book.id = history.bookid AND history.bookid = (SELECT bookid FROM history WHERE userid = (SELECT id from user where reg='$name'))") as $row)
         {
 
           echo '<tbody>';
@@ -48,7 +48,7 @@ try {
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
 
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate FROM issued LEFT JOIN book ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))") as $row)
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate FROM issued INNER JOIN book ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))") as $row)
         {
 
           echo '<tbody>';

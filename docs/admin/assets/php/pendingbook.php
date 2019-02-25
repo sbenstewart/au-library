@@ -21,14 +21,14 @@ try {
 
 
 
-  $sql = "SELECT book.id,book.name,user.name,issued.fine FROM (issued LEFT JOIN user ON issued.userid=user.id) LEFT JOIN book ON book.id = issued.bookid";
+  $sql = "SELECT book.id,book.name,user.name,issued.fine FROM (issued INNER JOIN user ON issued.userid=user.id) INNER JOIN book ON book.id = issued.bookid";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
 
                   echo '<tbody>';
-        foreach ($conn->query("SELECT book.id,book.name as bname,user.name as uname,issued.fine FROM (issued LEFT JOIN user ON issued.userid=user.id) LEFT JOIN book ON book.id = issued.bookid") as $row)
+        foreach ($conn->query("SELECT book.id,book.name as bname,user.name as uname,issued.fine FROM (issued INNER JOIN user ON issued.userid=user.id) INNER JOIN book ON book.id = issued.bookid") as $row)
         {
 
           echo "<tr><th scope='row'>";
