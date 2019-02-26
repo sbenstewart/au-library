@@ -1,3 +1,11 @@
+<?php session_start();  ob_start();
+    if (!isset($_SESSION['reg'])) {
+    header('location:index.php');
+    echo "Must redirect";
+    exit(); // <-- terminates the current script
+  }
+// close the php tag and write your HTML :)
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -59,16 +67,16 @@
                             </ul>
                         </li>
 
-                        <li class="active">
+                        <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
                             <ul class="collapse">
                                 <li><a href="book-entry.html">New entry</a></li>
-                                <li class="active"><a href="modify-book-entry.html">Change details</a></li>
+                                <li><a href="modify-book-entry.html">Change details</a></li>
                                 <li><a href="search-books.html">Search</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="fines.html"><i class="fa fa-university"></i> <span>Fines</span></a></li>
+                        <li class="active"><a href="fines.html"><i class="fa fa-university"></i> <span>Fines</span></a></li>
                         <li><a href="superuser.html"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
                         <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
                         <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
@@ -116,89 +124,46 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-                    <div class="col-lg-6 col-ml-12">
-                        <div class="row">
+
+                  <div class="col-12 mt-5">
+                      <div class="card">
+                          <div class="card-body">
+                              <h3 class="header-title">Search details</h3>
+                              <label> Click the button below to load the history of you. We really value your privacy.</label>
+                              <br>
+
+                              <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="pendingBook()">Check pending books</button>
+
+                          </div>
+                      </div>
+                  </div>
 
 
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-ml-12">
-                        <div class="row">
-                            <!-- basic form start -->
-                            <div class="col-12 mt-5">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title">Change Book Details</h4>
-                                        
-                                          <div class="form-group">
-                                              <label for="bookid">Book ISBN/ Call number</label>
-                                              <input type="text" class="form-control" id="bookid" aria-describedby="emailHelp" placeholder="Enter book ID">
-
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="name">Name</label>
-                                              <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter book name">
-
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="author">Author</label>
-                                              <input type="text" class="form-control" id="author" aria-describedby="emailHelp" placeholder="Enter author names">
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="count">Count</label>
-                                              <input type="number" class="form-control" id="count" aria-describedby="emailHelp" placeholder="Enter count">
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="publisher">Publisher</label>
-                                              <input type="text" class="form-control" id="publisher" aria-describedby="emailHelp" placeholder="Enter the book publisher">
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="edition">Edition</label>
-                                              <input type="text" class="form-control" id="edition" aria-describedby="emailHelp" placeholder="Enter edition">
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="price">Price</label>
-                                              <input type="number" class="form-control" id="price" aria-describedby="emailHelp" placeholder="Enter price">
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="subject">Subject</label>
-                                              <input type="text" class="form-control" id="subject" aria-describedby="emailHelp" placeholder="Enter subject">
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="department">Department</label>
-                                              <input type="text" class="form-control" id="department" aria-describedby="emailHelp" placeholder="Enter department">
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="row">Row</label>
-                                              <input type="text" class="form-control" id="row" aria-describedby="emailHelp" placeholder="Enter row where the book will be placed">
-                                          </div>
-
-
-
-
-                                            <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="modifyBook()">Submit</button>
-
+                    <!-- table primary start -->
+                    <div class="col-lg-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Pending Books</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-primary">
+                                                <tr class="text-white">
+                                                    <th scope="col">S. No</th>
+                                                    <th scope="col">Book ID</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Student</th>
+                                                    <th scope="col">Fine Amount(INR)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tablebody"></tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            <!-- basic form end -->
-
-
-
-
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

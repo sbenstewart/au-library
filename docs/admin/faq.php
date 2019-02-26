@@ -1,3 +1,11 @@
+<?php session_start();  ob_start();
+    if (!isset($_SESSION['reg'])) {
+    header('location:index.php');
+    echo "Must redirect";
+    exit(); // <-- terminates the current script
+  }
+// close the php tag and write your HTML :)
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 

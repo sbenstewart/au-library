@@ -1,10 +1,18 @@
+<?php session_start();  ob_start();
+    if (!isset($_SESSION['reg'])) {
+    header('location:index.php');
+    echo "Must redirect";
+    exit(); // <-- terminates the current script
+  }
+// close the php tag and write your HTML :)
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admin</title>
+    <title>Signup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -47,13 +55,13 @@
                 <div class="menu-inner">
                   <nav>
                       <ul class="metismenu" id="menu">
-                        <li  class="active"><a href="main.html"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
+                        <li><a href="main.html"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
 
 
-                        <li>
+                        <li class="active">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
                             <ul class="collapse">
-                                <li><a href="student-signup.html">Signup</a></li>
+                                <li class="active"><a href="student-signup.html">Signup</a></li>
                                 <li><a href="student-change-details.html">Change details</a></li>
                                 <li><a href="search-students.html">Search</a></li>
                             </ul>
@@ -116,130 +124,86 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-                  <div class="col-6 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Borrow Book</h4>
-
-                                  <div class="form-group">
-                                      <label for="book1">Book ID</label>
-                                      <input type="text" class="form-control" id="book1" aria-describedby="emailHelp" placeholder="Enter book ID">
-
-                                  </div>
-
-                                  <div class="form-group">
-                                      <label for="student1">Student Register Number</label>
-                                      <input type="text" class="form-control" id="student1" aria-describedby="emailHelp" placeholder="Enter student register number">
-
-                                  </div>
-
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="insertIssued()">Borrow</button>
-
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-6 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Return Book</h4>
-
-                                  <div class="form-group">
-                                      <label for="book2">Book ID</label>
-                                      <input type="text" class="form-control" id="book2" aria-describedby="emailHelp" placeholder="Enter book ID">
-
-                                  </div>
-
-                                  <div class="form-group">
-                                      <label for="student2">Student Register Number</label>
-                                      <input type="text" class="form-control" id="student2" aria-describedby="emailHelp" placeholder="Enter student register number">
-
-                                  </div>
-
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="deleteIssued()">Return</button>
-
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-6 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Renew Book</h4>
-
-                                  <div class="form-group">
-                                      <label for="book3">Book ID</label>
-                                      <input type="text" class="form-control" id="book3" aria-describedby="emailHelp" placeholder="Enter book ID">
-
-                                  </div>
-
-                                  <div class="form-group">
-                                      <label for="student3">Student Register Number</label>
-                                      <input type="text" class="form-control" id="student3" aria-describedby="emailHelp" placeholder="Enter student register number">
-
-                                  </div>
-
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="renewIssued()">Renew</button>
-
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-6 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">No due certificate</h4>
+                    <div class="col-lg-6 col-ml-12">
+                        <div class="row">
 
 
 
-                                  <div class="form-group">
-                                      <label for="student4">Student Register Number</label>
-                                      <input type="text" class="form-control" id="student4" aria-describedby="emailHelp" placeholder="Enter student register number">
 
-                                  </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-ml-12">
+                        <div class="row">
+                            <!-- basic form start -->
+                            <div class="col-12 mt-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Student Signup</h4>
 
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="deleteStudent()">Done</button>
+                                          <div class="form-group">
+                                              <label for="name">Name</label>
+                                              <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
 
-                          </div>
-                      </div>
-                  </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="reg">Register number</label>
+                                              <input type="text" class="form-control" id="reg" aria-describedby="emailHelp" placeholder="Enter your register number">
 
-                  <div class="col-6 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Make Book as Reference</h4>
+                                          </div>
+                                            <div class="form-group">
+                                                <label for="email">Email address</label>
+                                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="phone">Phone number</label>
+                                                <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter ten digit number">
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="department">Department</label>
+                                                <input type="text" class="form-control" id="department" placeholder="Department">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-form-label">Course</label>
+                                                <select id="course" class="custom-select">
+                                                    <option selected="">Chose your course</option>
+                                                    <option value="B.E.">B.E.</option>
+                                                    <option value="M.E.">M.E.</option>
+                                                    <option value="M.Sc.">M.Sc.</option>
+                                                    <option value="Ph.D.">Ph.D.</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="year">Year of Joining</label>
+                                                <input type="text" class="form-control" id="year" placeholder="2018">
+                                            </div>
+
+
+                                            <br>
 
 
 
-                                  <div class="form-group">
-                                      <label for="book5">Book ID</label>
-                                      <input type="text" class="form-control" id="book5" aria-describedby="emailHelp" placeholder="Enter book ID">
+                                            <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="insertStudent()">Submit</button>
 
-                                  </div>
-
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="addReference()">Add</button>
-
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-6 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Remove Book from Reference</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- basic form end -->
 
 
 
-                                  <div class="form-group">
-                                      <label for="book6">Book ID</label>
-                                      <input type="text" class="form-control" id="book6" aria-describedby="emailHelp" placeholder="Enter book ID">
 
-                                  </div>
-
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="removeReference()">Remove</button>
-                              
-                          </div>
-                      </div>
-                  </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

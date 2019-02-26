@@ -1,10 +1,18 @@
+<?php session_start();  ob_start();
+    if (!isset($_SESSION['reg'])) {
+    header('location:index.php');
+    echo "Must redirect";
+    exit(); // <-- terminates the current script
+  }
+// close the php tag and write your HTML :)
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Books</title>
+    <title>Students</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -50,21 +58,21 @@
                         <li><a href="main.html"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
 
 
-                        <li>
+                        <li class="active">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
                             <ul class="collapse">
                                 <li><a href="student-signup.html">Signup</a></li>
                                 <li><a href="student-change-details.html">Change details</a></li>
-                                <li><a href="search-students.html">Search</a></li>
+                                <li class="active"><a href="search-students.html">Search</a></li>
                             </ul>
                         </li>
 
-                        <li class="active">
+                        <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
                             <ul class="collapse">
                                 <li><a href="book-entry.html">New entry</a></li>
                                 <li><a href="modify-book-entry.html">Change details</a></li>
-                                <li class="active"><a href="search-books.html">Search</a></li>
+                                <li><a href="search-books.html">Search</a></li>
 
                             </ul>
                         </li>
@@ -104,7 +112,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Details</a>
                                 <a class="dropdown-item" href="#">Log Out</a>
@@ -120,37 +128,27 @@
                   <div class="col-12 mt-5">
                       <div class="card">
                           <div class="card-body">
-                              <h4 class="header-title">Search details</h4>
+                              <h4 class="header-title">Search borrowed books details</h4>
 
                                   <div class="form-group">
-                                      <label for="book">Book name</label>
-                                      <input type="text" class="form-control" id="book" aria-describedby="emailHelp" placeholder="Enter book name">
-                                      <small id="emailHelp" class="form-text text-muted">This is the field that gets the most accurate results.</small>
-                                  </div>
-
-                                  <div class="form-group">
-                                      <label for="author">Author name</label>
-                                      <input type="text" class="form-control" id="author" aria-describedby="emailHelp" placeholder="Enter author name">
-                                      <small id="emailHelp" class="form-text text-muted">Narrow down your search by using this field.</small>
-                                  </div>
-
-                                  <div class="form-group">
-                                      <label for="code">Book code</label>
-                                      <input type="text" class="form-control" id="code" aria-describedby="emailHelp" placeholder="Enter book code">
-                                      <small id="emailHelp" class="form-text text-muted">This is for the dedicated ones who know right down till the code.</small>
+                                      <label for="roll">Student roll number</label>
+                                      <input type="text" class="form-control" id="roll" aria-describedby="emailHelp" placeholder="Enter student roll number">
                                   </div>
 
 
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchBook()">Search</button>
+
+
+                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchStudent()">Search</button>
 
                           </div>
                       </div>
                   </div>
                     <!-- table primary start -->
+
                     <div class="col-lg-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Books that matched your search</h4>
+                                <h4 class="header-title">Issued Books</h4>
                                 <div class="single-table">
                                     <div class="table-responsive">
                                         <table class="table text-center">
@@ -159,19 +157,55 @@
                                                     <th scope="col">S. No</th>
                                                     <th scope="col">Book ID</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Author</th>
-                                                    <th scope="col">Count</th>
-                                                    <th scope="col">Remaining</th>
-                                                    <th scope="col">Edition</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Subject</th>
-                                                    <th scope="col">Reference</th>
-                                                    <th scope="col">Department</th>
-                                                    <th scope="col">Row</th>
+                                                    <th scope="col">Due Date</th>
+                                                    <th scope="col">Fine (INR)</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="tablebody"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Search student details</h4>
+
+                                    <div class="form-group">
+                                        <label for="roll1">Student roll number</label>
+                                        <input type="text" class="form-control" id="roll1" aria-describedby="emailHelp" placeholder="Enter student roll number">
+                                    </div>
+
+
+
+
+                                    <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchStudentDetails()">Details</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Student Details</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-primary">
+                                                <tr class="text-white">
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Phone</th>
+                                                    <th scope="col">Dept</th>
+                                                    <th scope="col">Course</th>
+                                                    <th scope="col">Year</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tablebody1"></tbody>
                                         </table>
                                     </div>
                                 </div>

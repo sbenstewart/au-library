@@ -1,10 +1,18 @@
+<?php session_start();  ob_start();
+    if (!isset($_SESSION['reg'])) {
+    header('location:index.php');
+    echo "Must redirect";
+    exit(); // <-- terminates the current script
+  }
+// close the php tag and write your HTML :)
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admin</title>
+    <title>Student</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -50,11 +58,11 @@
                         <li><a href="main.html"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
 
 
-                        <li>
+                        <li class="active">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
                             <ul class="collapse">
                                 <li><a href="student-signup.html">Signup</a></li>
-                                <li><a href="student-change-details.html">Change details</a></li>
+                                <li class="active"><a href="student-change-details.html">Change details</a></li>
                                 <li><a href="search-students.html">Search</a></li>
                             </ul>
                         </li>
@@ -69,7 +77,7 @@
                             </ul>
                         </li>
                         <li><a href="fines.html"><i class="fa fa-university"></i> <span>Fines</span></a></li>
-                        <li  class="active"><a href="superuser.html"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
+                        <li><a href="superuser.html"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
                         <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
                         <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
                         <li><a href="about.html#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
@@ -116,81 +124,88 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-                  <div class="col-12 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Fine amount</h4>
-                              <form action="#">
-                                  <div class="form-group">
-                                      <input type="text" class="form-control" id="fine" aria-describedby="emailHelp" placeholder="Enter fine amount per day">
+                    <div class="col-lg-6 col-ml-12">
+                        <div class="row">
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-ml-12">
+                        <div class="row">
+                            <!-- basic form start -->
+                            <div class="col-12 mt-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Change Student Details</h4>
+
+
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="reg">Register number</label>
+                                            <input type="text" class="form-control" id="reg" aria-describedby="emailHelp" placeholder="Enter your register number">
+
+                                        </div>
+                                          <div class="form-group">
+                                              <label for="email">Email address</label>
+                                              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+                                          </div>
+
+                                          <div class="form-group">
+                                              <label for="phone">Phone number</label>
+                                              <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter ten digit number">
+
+                                          </div>
+
+                                          <div class="form-group">
+                                              <label for="password">Password</label>
+                                              <input type="password" class="form-control" id="password" placeholder="Password">
+                                          </div>
+
+
+                                          <div class="form-group">
+                                              <label for="department">Department</label>
+                                              <input type="text" class="form-control" id="department" placeholder="Department">
+                                          </div>
+
+                                          <div class="form-group">
+                                              <label class="col-form-label">Course</label>
+                                              <select id="course" class="custom-select">
+                                                  <option selected="">Chose your course</option>
+                                                  <option value="B.E.">B.E.</option>
+                                                  <option value="M.E.">M.E.</option>
+                                                  <option value="M.Sc.">M.Sc.</option>
+                                                  <option value="Ph.D.">Ph.D.</option>
+                                              </select>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="year">Year of Joining</label>
+                                              <input type="text" class="form-control" id="year" placeholder="2018">
+                                          </div>
+
+
+                                          <br>
+
+
+
+                                          <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="modifyStudent()">Submit</button>
 
                                   </div>
-
-
-
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="changeFine()">Change</button>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-12 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Borrow Limit</h4>
-                              <form action="#">
-
-
-                                  <div class="form-group">
-                                      <input type="text" class="form-control" id="borrow" aria-describedby="emailHelp" placeholder="Enter maximum number of issued books">
-
-                                  </div>
-
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="changeBorrow()">Change</button>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-12 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Return date</h4>
-                              <form action="#">
-
-
-                                  <div class="form-group">
-                                      <input type="text" class="form-control" id="return" aria-describedby="emailHelp" placeholder="Enter maximum days a book can be borrowed">
-
-                                  </div>
-
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="changeReturn()">Change</button>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-12 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Downloads</h4>
-                              <form action="assets/php/download-studentlist.php">
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Students list</button>
-                              </form>
-                              <form action="assets/php/download-booklist.php">
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Books list</button>
-                              </form>
-                              <form action="assets/php/download-transactionlist.php">
-                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Books issued history</button>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
+                                </div>
+                            </div>
+                            <!-- basic form end -->
 
 
 
 
-
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
