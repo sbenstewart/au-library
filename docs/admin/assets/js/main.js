@@ -27,6 +27,75 @@ alert(html);
 return false;
 }
 
+function insertIssued() {
+var book = document.getElementById("book1").value;
+var student = document.getElementById("student1").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book + '&student1=' + student;
+if (book==''||student=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/insertissued.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
+function deleteIssued() {
+var book = document.getElementById("book2").value;
+var student = document.getElementById("student2").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book + '&student1=' + student;
+if (book==''||student=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/deleteissued.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
+function renewIssued() {
+var book = document.getElementById("book3").value;
+var student = document.getElementById("student3").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book + '&student1=' + student;
+if (book==''||student=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/renewissued.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 function modifyStudent() {
 var name = document.getElementById("name").value;
 var reg = document.getElementById("reg").value;
@@ -57,20 +126,69 @@ return false;
 }
 
 function searchStudent() {
-  var roll = document.getElementById("roll").value;
+var roll = document.getElementById("roll").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&roll1=' + roll;
+if (roll=='') {
+alert("Please Enter the roll number.");
+} else {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudent.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody').innerHTML=html;
+}
+});
+}
+return false;
+}
+
+function searchStudentDetails() {
+var roll = document.getElementById("roll1").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&roll1=' + roll;
+if (roll=='') {
+alert("Please Enter the roll number.");
+} else {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudentdetails.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody1').innerHTML=html;
+}
+});
+}
+return false;
+}
+
+
+function deleteStudent() {
+var student = document.getElementById("student4").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&student1=' + student;
+if (student=='') {
+alert("Please enter register number of student.");
+} else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
-url: "assets/php/searchstudent.php",
+url: "assets/php/deletestudent.php",
 processData: false,
 data: dataString,
 cache: false,
 success: function(html) {
-document.getElementById('tablebody').innerHTML=html;
+alert(html);
 }
 });
+}
 return false;
 }
 
@@ -103,6 +221,9 @@ function changeFine() {
 var fine = document.getElementById("fine").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&fine1=' + fine;
+if (fine == '') {
+alert("Please Fill All Fields");
+} else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
@@ -114,6 +235,7 @@ success: function(html) {
   alert(html);
 }
 });
+}
 return false;
 }
 
@@ -121,6 +243,9 @@ function changeBorrow() {
 var fine = document.getElementById("borrow").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&fine1=' + fine;
+if (fine == '') {
+alert("Please Fill All Fields");
+} else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
@@ -132,6 +257,7 @@ success: function(html) {
   alert(html);
 }
 });
+}
 return false;
 }
 
@@ -139,6 +265,9 @@ function changeReturn() {
 var fine = document.getElementById("return").value;
 // Returns successful data submission message when the entered information is stored in database.
 var dataString = '&fine1=' + fine;
+if (fine == '') {
+alert("Please Fill All Fields");
+} else {
 // AJAX code to submit form.
 jQuery.ajax({
 type: "POST",
@@ -150,6 +279,7 @@ success: function(html) {
   alert(html);
 }
 });
+}
 return false;
 }
 
@@ -231,6 +361,50 @@ alert("Please Fill All Fields");
 jQuery.ajax({
 type: "POST",
 url: "assets/php/insertbook.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
+function addReference() {
+var book = document.getElementById("book5").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book;
+if (book=='') {
+alert("Please Enter Book ID");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/addreference.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
+function removeReference() {
+var book = document.getElementById("book6").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book;
+if (book=='') {
+alert("Please Enter Book ID");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/removereference.php",
 processData: false,
 data: dataString,
 cache: false,

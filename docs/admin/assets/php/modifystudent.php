@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'dbconfig.php';
 $name2 = $_POST['name1'];
 $reg2 = $_POST['reg1'];
@@ -15,12 +16,25 @@ $year2 = $_POST['year1'];
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+  if(isset($_SESSION["admin"]))
+  {$name=$_SESSION["admin"];}
+  else
+  {throw new Exception("<b>You must log in.</b>");}
+  $sql = "SELECT COUNT(*) from admin where id='$name'";
+  if ($res = $conn->query($sql))
+  {
+  if ($res->fetchColumn() > 0){}
+  else{throw new Exception("<b>You must log in.</b>");}
+  }
+  else{throw new Exception("<b>You must log in.</b>");}
+
   $count = $conn->exec("UPDATE user SET name='$name2',password='$password2',course='$course2',dept='$department2',year='$year2',mail='$email2',phone='$phone2' where reg='$reg2'");
   echo "Student record has been modified.";
 
 
-} catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

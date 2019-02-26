@@ -1,7 +1,8 @@
 <?php
 session_start();
 require_once 'dbconfig.php';
-$fine2 = $_POST['fine1'];
+$book2 = $_POST['book1'];
+
 
 try {
 
@@ -19,30 +20,21 @@ try {
   }
   else{throw new Exception("<b>You must log in.</b>");}
 
-  $sql = "SELECT value1 from config where key1='fine'";
-
-
+  $sql = "SELECT id FROM book where isbn = '$book2'";
   if ($res = $conn->query($sql)) {
-
-      /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT value1 from config where key1='returndays'") as $row)
+        foreach ($conn->query("SELECT id FROM book where isbn = '$book2'") as $row)
         {
-          $fine1 = $row['value1'];
-          /*session is started if you don't write this line can't use $_Session  global variable*/
+          $bookid=$row['id'];
         }
-
-        $count = $conn->exec("UPDATE config SET value1='$fine2' where key1='returndays'");
-
-        echo "Return date changed from $fine1 to $fine2";
-
-        }
-        /* No rows matched -- do something else */
-
         }
         else {
-        echo "Submission failed. Try later.";
+          throw new Exception("Wrong book id.");
         }
+        }
+
+  $count = $conn->exec("UPDATE book SET reference='No' WHERE isbn='$book2'");
+  echo "Book has been made a non-Reference copy.";
 
 
 } catch(Exception $e) {

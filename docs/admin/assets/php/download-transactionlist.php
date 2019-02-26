@@ -1,8 +1,22 @@
 <?php
+session_start();
 require_once 'dbconfig.php';
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-      $sql = "SELECT book.isbn,book.name,book.author,issued.issuedate,issued.returndate,book.remaining FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user))";
+
+    if(isset($_SESSION["admin"]))
+    {$name=$_SESSION["admin"];}
+    else
+    {throw new Exception("<b>You must log in.</b>");}
+    $sql = "SELECT COUNT(*) from admin where id='$name'";
+    if ($res = $conn->query($sql))
+    {
+    if ($res->fetchColumn() > 0){}
+    else{throw new Exception("<b>You must log in.</b>");}
+    }
+    else{throw new Exception("<b>You must log in.</b>");}
+
+      $sql = "SELECT book.isbn,book.name,book.author,issued.issuedate,issued.returndate,book.remaining FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user))";
       //Prepare our SQL query.
       $statement = $conn->prepare($sql);
       //Executre our SQL query.
@@ -38,8 +52,8 @@ try {
 }
 //Close the file pointer.
 fclose($fp);
-} catch (PDOException $pe) {
-    die("Could not connect to the database $dbname :" . $pe->getMessage());
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

@@ -8,7 +8,7 @@ try {
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
   $sql = "SELECT COUNT(*) from admin where email='$mail2' and password='$password2'";
-  
+
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
@@ -36,8 +36,8 @@ try {
         }
 
 
-} catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

@@ -1,10 +1,23 @@
 <?php
+session_start();
 require_once 'dbconfig.php';
 $fine2 = $_POST['fine1'];
 
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+  if(isset($_SESSION["admin"]))
+  {$name=$_SESSION["admin"];}
+  else
+  {throw new Exception("<b>You must log in.</b>");}
+  $sql = "SELECT COUNT(*) from admin where id='$name'";
+  if ($res = $conn->query($sql))
+  {
+  if ($res->fetchColumn() > 0){}
+  else{throw new Exception("<b>You must log in.</b>");}
+  }
+  else{throw new Exception("<b>You must log in.</b>");}
 
   $sql = "SELECT value1 from config where key1='fine'";
 
@@ -32,8 +45,8 @@ try {
         }
 
 
-} catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

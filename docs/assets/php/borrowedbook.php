@@ -6,15 +6,21 @@ try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
+  if(isset($_SESSION["name"]))
+  {
   $name=$_SESSION["name"];
-  #var_dump($name);
+  }
+  else {
+    throw new Exception("<b>You must be logged in to view the books.</b>");
+  }
 
-  $sql = "SELECT * FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))";
+  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate,book.remaining FROM book LEFT JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))") as $row)
+
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,history.returndate FROM history INNER JOIN book ON book.id = history.bookid AND history.bookid = (SELECT bookid FROM history WHERE userid = (SELECT id from user where reg='$name'))") as $row)
         {
 
           echo '<tbody>';
@@ -31,13 +37,37 @@ try {
           echo $author2;
           echo "</td><td>";
           $temp2 = $row['returndate'];
-          #var_dump($temp2);
           echo $temp2;
           echo "</td><td>";
-          $remaining2 = $row['remaining'];
           $availability = 'Yes';
-          if($remaining2==0)
-          {$availability='No';}
+          echo $availability;
+          echo "</td></tr></tbody>";
+          $count = $count+1;
+
+
+          /*session is started if you don't write this line can't use $_Session  global variable*/
+        }
+
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate FROM issued INNER JOIN book ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))") as $row)
+        {
+
+          echo '<tbody>';
+          echo "<tr><th scope='row'>";
+          echo $count;
+          echo "</th><td>";
+          $isbn2 = $row['isbn'];
+          echo $isbn2;
+          echo "</td><td>";
+          $name2 = $row['name'];
+          echo $name2;
+          echo "</td><td>";
+          $author2 = $row['author'];
+          echo $author2;
+          echo "</td><td>";
+          $temp2 = $row['returndate'];
+          echo $temp2;
+          echo "</td><td>";
+          $availability = 'No';
           echo $availability;
           echo "</td></tr></tbody>";
           $count = $count+1;
@@ -58,8 +88,8 @@ try {
         }
 
 
-} catch (PDOException $pe) {
-    die("Could not connect to the server. Please check your internet connection.");
+} catch(Exception $e) {
+  echo  $e->getMessage();
 }
  // Connection Closed
 ?>

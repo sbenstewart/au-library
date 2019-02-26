@@ -1,11 +1,13 @@
 <?php
 session_start();
 require_once 'dbconfig.php';
+$roll2 = $_POST['roll1'];
 
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
+  $user='user';
 
   if(isset($_SESSION["admin"]))
   {$name=$_SESSION["admin"];}
@@ -20,48 +22,48 @@ try {
   else{throw new Exception("<b>You must log in.</b>");}
 
 
-
-  $sql = "SELECT book.id,book.name,user.name,issued.fine FROM (issued INNER JOIN user ON issued.userid=user.id) INNER JOIN book ON book.id = issued.bookid";
+  $sql = "SELECT * FROM $user WHERE reg='$roll2'";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-
-                  echo '<tbody>';
-        foreach ($conn->query("SELECT book.id,book.name as bname,user.name as uname,issued.fine FROM (issued INNER JOIN user ON issued.userid=user.id) INNER JOIN book ON book.id = issued.bookid") as $row)
+        foreach ($conn->query("SELECT name,course,dept,year,mail,phone FROM $user WHERE reg='$roll2'") as $row)
         {
 
+          echo '<tbody>';
           echo "<tr><th scope='row'>";
-          echo $count;
+
+          $name2 = $row['name'];
+          echo $name2;
           echo "</th><td>";
-          $id2 = $row['id'];
-          echo $id2;
+          $course2 = $row['course'];
+          echo $course2;
           echo "</td><td>";
-          $bname2 = $row['bname'];
-          echo $bname2;
+          $dept2 = $row['dept'];
+          echo $dept2;
           echo "</td><td>";
-          $uname2 = $row['uname'];
-          echo $uname2;
+          $year2 = $row['year'];
+          echo $year2;
           echo "</td><td>";
-          $fine2 = $row['fine'];
-          echo $fine2;
-          echo "</td></tr>";
+          $mail2 = $row['mail'];
+          echo $mail2;
+          echo "</td><td>";
+          $phone2 = $row['phone'];
+          echo $phone2;
+          echo "</td></tr></tbody>";
           $count = $count+1;
 
 
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
-        echo "</tbody>";
 
         }
         /* No rows matched -- do something else */
         else {
-        echo "";
 
         }
         }
         else {
-        echo "";
         }
 
 
