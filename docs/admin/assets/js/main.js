@@ -208,7 +208,7 @@ processData: false,
 data: dataString,
 cache: false,
 success: function(html) {
-if(html.startsWith("Logged")){window.location = "main.html";}
+if(html.startsWith("Logged")){window.location = "main.php";}
 else{alert(html);}
 }
 });
