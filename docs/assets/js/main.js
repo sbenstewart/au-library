@@ -14,7 +14,7 @@ processData: false,
 data: dataString,
 cache: false,
 success: function(html) {
-if(html.startsWith("Logged")){window.location = "borrowed-books.html";}
+if(html.startsWith("Logged")){window.location = "borrowed-books.php";}
 else{alert(html);}
 }
 });

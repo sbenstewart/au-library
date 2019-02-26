@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -47,11 +48,11 @@
                     <nav>
                         <ul class="metismenu" id="menu">
 
-                            <li><a href="borrowed-books.html"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
-                            <li><a href="search-books.html"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
-                            <li class="active"><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                            <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                            <li><a href="about.html#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
+                            <li><a href="borrowed-books.php"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
+                            <li><a href="search-books.php"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
+                            <li class="active"><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                            <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                            <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
                         </ul>
                     </nav>

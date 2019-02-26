@@ -1,10 +1,11 @@
+<?php session_start();?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Books</title>
+    <title>Borrowed Books</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 
 <body>
@@ -48,11 +50,11 @@
                     <nav>
                         <ul class="metismenu" id="menu">
 
-                            <li><a href="borrowed-books.html"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
-                            <li class="active"><a href="search-books.html"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
-                            <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                            <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                            <li><a href="about.html#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
+                            <li class="active"><a href="borrowed-books.php"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
+                            <li><a href="search-books.php"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
+                            <li><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                            <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                            <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
                         </ul>
                     </nav>
@@ -100,28 +102,11 @@
                   <div class="col-12 mt-5">
                       <div class="card">
                           <div class="card-body">
-                              <h4 class="header-title">Search details</h4>
+                              <h3 class="header-title">Search details</h3>
+                              <label> Click the button below to load the history of you. We really value your privacy.</label>
+                              <br>
 
-                                  <div class="form-group">
-                                      <label for="book">Book name</label>
-                                      <input type="text" class="form-control" id="book" aria-describedby="emailHelp" placeholder="Enter book name">
-                                      <small id="emailHelp" class="form-text text-muted">This is the field that gets the most accurate results.</small>
-                                  </div>
-
-                                  <div class="form-group">
-                                      <label for="author">Author name</label>
-                                      <input type="text" class="form-control" id="author" aria-describedby="emailHelp" placeholder="Enter author name">
-                                      <small id="emailHelp" class="form-text text-muted">Narrow down your search by using this field.</small>
-                                  </div>
-
-                                  <div class="form-group">
-                                      <label for="code">Book code</label>
-                                      <input type="text" class="form-control" id="code" aria-describedby="emailHelp" placeholder="Enter book code">
-                                      <small id="emailHelp" class="form-text text-muted">This is for the dedicated ones who know right down till the code.</small>
-                                  </div>
-
-
-                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchBook()">Search</button>
+                              <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="borrowedBook()">View History</button>
 
                           </div>
                       </div>
@@ -130,7 +115,7 @@
                     <div class="col-lg-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Books that matched your search</h4>
+                                <h4 class="header-title">History</h4>
                                 <div class="single-table">
                                     <div class="table-responsive">
                                         <table class="table text-center">
@@ -140,18 +125,45 @@
                                                     <th scope="col">Book ID</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Author</th>
-                                                    <th scope="col">Availability</th>
+                                                    <th scope="col">Date of Return</th>
+                                                    <th scope="col">Returned</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="tablebody"></tbody>
-
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- table primary end -->
+                    <!-- table success start -->
 
+                    <!-- table success end -->
+                    <!-- table info start -->
+
+                    <!-- table info end -->
+                    <!-- table warning start -->
+
+                    <!-- table warning end -->
+                    <!-- table danger start -->
+
+                    <!-- table danger end -->
+                    <!-- table dark start -->
+
+                    <!-- table dark end -->
+                    <!-- table light start -->
+
+                    <!-- table light end -->
+                    <!-- table secondary start -->
+
+                    <!-- table secondary end -->
+                    <!-- Contextual Classes start -->
+
+                    <!-- Contextual Classes end -->
+                    <!-- Contextual Classes start -->
+
+                    <!-- Contextual Classes end -->
                 </div>
             </div>
         </div>
@@ -165,9 +177,6 @@
         <!-- footer area end-->
     </div>
     <!-- page container area end -->
-    <!-- offset area start -->
-
-    <!-- offset area end -->
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
