@@ -135,6 +135,11 @@
                                       <input type="text" class="form-control" id="roll" aria-describedby="emailHelp" placeholder="Enter student roll number">
                                   </div>
 
+                                  <div class="form-group">
+                                      <label for="roll">Student name</label>
+                                      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter student name">
+                                  </div>
+
 
 
 
@@ -177,6 +182,11 @@
                                     <div class="form-group">
                                         <label for="roll1">Student roll number</label>
                                         <input type="text" class="form-control" id="roll1" aria-describedby="emailHelp" placeholder="Enter student roll number">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="roll1">Student name</label>
+                                        <input type="text" class="form-control" id="name1" aria-describedby="emailHelp" placeholder="Enter student name">
                                     </div>
 
 
