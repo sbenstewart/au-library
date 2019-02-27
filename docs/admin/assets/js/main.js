@@ -179,7 +179,7 @@ function searchStudentDetails() {
 var roll = document.getElementById("roll1").value;
 var name = document.getElementById("name1").value;
 // Returns successful data submission message when the entered information is stored in database.
-var dataString = var dataString = '&roll1=' + roll + '&name1=' + name;
+var dataString = '&roll1=' + roll + '&name1=' + name;
 if (roll=='' && name=='') {
 alert("Please give details to search.");
 }
