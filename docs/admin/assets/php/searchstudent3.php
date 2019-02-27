@@ -58,7 +58,7 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "";
+        echo "No entries matched";
 
         }
         }
