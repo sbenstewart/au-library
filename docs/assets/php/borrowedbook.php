@@ -10,7 +10,7 @@ try {
   $name=$_SESSION['name'];
   }
   else {
-    throw new Exception("<b>You must be logged in to view the books.</b>");
+    throw new Exception("You must be logged in to view the books.");
   }
 
   $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name'))";
