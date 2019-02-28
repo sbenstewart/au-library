@@ -171,7 +171,11 @@
                                               <select id="course" class="custom-select">
                                                   <option selected="">Chose your course</option>
                                                   <option value="B.E.">B.E.</option>
+                                                  <option value="B.Tech.">B.Tech.</option>
                                                   <option value="M.E.">M.E.</option>
+                                                  <option value="M.Tech.">M.Tech.</option>
+                                                  <option value="M.C.A.">M.C.A.</option>
+                                                  <option value="M.B.A.">M.B.A.</option>
                                                   <option value="M.Sc.">M.Sc.</option>
                                                   <option value="Ph.D.">Ph.D.</option>
                                               </select>
