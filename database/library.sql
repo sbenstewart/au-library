@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 28, 2019 at 12:23 PM
+-- Generation Time: Feb 28, 2019 at 12:40 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -400,8 +400,7 @@ INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publi
 (325, '180325', 'Fundamentals of Computing and Programming', 'E.Balagurusamy   ', 1, 1, 'McGraw Hill Education', '1', 0, 'Computer Science', 'Yes', 'Computer Science', ''),
 (326, '180326', 'Digital Principles and System Design', 'Atul P.Godse Deepali A.Godse  ', 1, 1, 'Technical Publications', '4', 395, 'Computer Science', 'Yes', 'Computer Science', ''),
 (327, '180327', 'Digital Principles and Applications', 'Albert Paul Malvino Donald P.Leach  ', 1, 1, 'Tata McGraw Hill Publishing Company', '4', 0, 'Computer Science', 'Yes', 'Computer Science', ''),
-(328, '180328', 'Digital Design', 'M.Morris Mano   ', 1, 1, 'PHI Learing', '3', 175, 'Computer Science', 'Yes', 'Computer Science', '');
-INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publisher`, `edition`, `price`, `subject`, `reference`, `department`, `row`) VALUES
+(328, '180328', 'Digital Design', 'M.Morris Mano   ', 1, 1, 'PHI Learing', '3', 175, 'Computer Science', 'Yes', 'Computer Science', ''),
 (329, '180329', 'Digital Design', 'M.Morris Mano Michael D.Ciletti  ', 1, 1, 'Pearson', '4', 0, 'Computer Science', 'Yes', 'Computer Science', ''),
 (330, '180330', 'Digital Design', 'M.Morris Mano Michael D.Ciletti  ', 1, 1, 'Pearson', '4', 0, 'Computer Science', 'No', 'Computer Science', ''),
 (331, '180331', 'Digital Design', 'M.Morris Mano Michael D.Ciletti  ', 1, 1, 'Pearson', '4', 0, 'Computer Science', 'No', 'Computer Science', ''),
