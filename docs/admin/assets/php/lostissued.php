@@ -51,7 +51,9 @@ try {
         foreach ($conn->query("SELECT price FROM book where isbn = '$book2'") as $row)
         {
           $fine =$row['price'];
-          echo "The $fine fine amount is to be collected.";
+          echo "The";
+          echo $fine;
+          echo " fine amount is to be collected.";
 
         }
 
