@@ -33,6 +33,16 @@ try {
           throw new Exception("Wrong book id.");
         }
         }
+  $sql = "SELECT * FROM book WHERE isbn = '$book2' and remaining > 0";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+
+        }
+        else {
+          throw new Exception("Book not available.");
+        }
+        }
+
   $sql = "SELECT id FROM user where reg = '$student2'";
   if ($res = $conn->query($sql)) {
       if ($res->fetchColumn() > 0) {

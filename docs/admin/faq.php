@@ -1,5 +1,5 @@
 <?php session_start();  ob_start();
-    if (!isset($_SESSION['reg'])) {
+    if (!isset($_SESSION['admin'])) {
     header('location:index.html');
     echo "Must redirect";
     exit(); // <-- terminates the current script
