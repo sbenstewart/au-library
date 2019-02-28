@@ -192,7 +192,7 @@ if (roll!='' && name=='') {
   data: dataString,
   cache: false,
   success: function(html) {
-  document.getElementById('tablebody').innerHTML=html;
+  document.getElementById('tablebody1').innerHTML=html;
 }
 });
 }
@@ -205,7 +205,7 @@ if (roll=='' && name!='') {
   data: dataString,
   cache: false,
   success: function(html) {
-  document.getElementById('tablebody').innerHTML=html;
+  document.getElementById('tablebody1').innerHTML=html;
 }
 });
 }
@@ -218,7 +218,7 @@ if (roll!='' && name!='') {
   data: dataString,
   cache: false,
   success: function(html) {
-  document.getElementById('tablebody').innerHTML=html;
+  document.getElementById('tablebody1').innerHTML=html;
 }
 });
 }

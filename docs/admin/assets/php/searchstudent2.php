@@ -42,11 +42,8 @@ try {
           $temp2 = $row['returndate'];
           echo $temp2;
           echo "</td><td>";
-          $remaining2 = $row['remaining'];
-          $availability = 'Yes';
-          if($remaining2==0)
-          {$availability='No';}
-          echo $availability;
+          $remaining2 = $row['fine'];
+          echo $remaining2;
           echo "</td></tr></tbody>";
           $count = $count+1;
 
