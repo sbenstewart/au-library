@@ -58,7 +58,7 @@ try {
         }
 
         }
-      }
+      }      
   $count = $conn->exec("DELETE FROM issued WHERE userid='$userid' AND bookid='$bookid'");
   $count = $conn->exec("DELETE FROM book WHERE id='$bookid'");
   echo "Collect fine from the student.";
