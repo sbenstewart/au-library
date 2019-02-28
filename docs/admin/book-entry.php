@@ -149,10 +149,7 @@
                                               <input type="text" class="form-control" id="author" aria-describedby="emailHelp" placeholder="Enter author names">
                                           </div>
 
-                                          <div class="form-group">
-                                              <label for="count">Count</label>
-                                              <input type="number" class="form-control" id="count" aria-describedby="emailHelp" placeholder="Enter count">
-                                          </div>
+
 
                                           <div class="form-group">
                                               <label for="publisher">Publisher</label>
@@ -182,6 +179,15 @@
                                           <div class="form-group">
                                               <label for="row">Row</label>
                                               <input type="text" class="form-control" id="row" aria-describedby="emailHelp" placeholder="Enter row where the book will be placed">
+                                          </div>
+
+                                          <div class="form-group">
+                                              <label class="col-form-label">Reference</label>
+                                              <select id="ref" class="custom-select">
+                                                  <option selected="">Chose your course</option>
+                                                  <option value="Yes">Yes</option>
+                                                  <option value="No">No</option>
+                                              </select>
                                           </div>
 
 

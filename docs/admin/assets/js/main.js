@@ -401,7 +401,7 @@ function insertBook() {
 var bookid = document.getElementById("bookid").value;
 var name = document.getElementById("name").value;
 var author = document.getElementById("author").value;
-var count = document.getElementById("count").value;
+var count = document.getElementById("ref").value;
 var publisher = document.getElementById("publisher").value;
 var edition = document.getElementById("edition").value;
 var price = document.getElementById("price").value;
@@ -476,7 +476,7 @@ function modifyBook() {
 var bookid = document.getElementById("bookid").value;
 var name = document.getElementById("name").value;
 var author = document.getElementById("author").value;
-var count = document.getElementById("count").value;
+var count = document.getElementById("ref").value;
 var publisher = document.getElementById("publisher").value;
 var edition = document.getElementById("edition").value;
 var price = document.getElementById("price").value;
