@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 28, 2019 at 02:46 AM
+-- Generation Time: Feb 28, 2019 at 12:23 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -49,7 +49,7 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 -- Table structure for table `book`
 --
 -- Creation: Feb 26, 2019 at 04:19 PM
--- Last update: Feb 28, 2019 at 02:39 AM
+-- Last update: Feb 28, 2019 at 12:23 PM
 --
 
 CREATE TABLE `book` (
@@ -400,7 +400,8 @@ INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publi
 (325, '180325', 'Fundamentals of Computing and Programming', 'E.Balagurusamy   ', 1, 1, 'McGraw Hill Education', '1', 0, 'Computer Science', 'Yes', 'Computer Science', ''),
 (326, '180326', 'Digital Principles and System Design', 'Atul P.Godse Deepali A.Godse  ', 1, 1, 'Technical Publications', '4', 395, 'Computer Science', 'Yes', 'Computer Science', ''),
 (327, '180327', 'Digital Principles and Applications', 'Albert Paul Malvino Donald P.Leach  ', 1, 1, 'Tata McGraw Hill Publishing Company', '4', 0, 'Computer Science', 'Yes', 'Computer Science', ''),
-(328, '180328', 'Digital Design', 'M.Morris Mano   ', 1, 1, 'PHI Learing', '3', 175, 'Computer Science', 'Yes', 'Computer Science', ''),
+(328, '180328', 'Digital Design', 'M.Morris Mano   ', 1, 1, 'PHI Learing', '3', 175, 'Computer Science', 'Yes', 'Computer Science', '');
+INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publisher`, `edition`, `price`, `subject`, `reference`, `department`, `row`) VALUES
 (329, '180329', 'Digital Design', 'M.Morris Mano Michael D.Ciletti  ', 1, 1, 'Pearson', '4', 0, 'Computer Science', 'Yes', 'Computer Science', ''),
 (330, '180330', 'Digital Design', 'M.Morris Mano Michael D.Ciletti  ', 1, 1, 'Pearson', '4', 0, 'Computer Science', 'No', 'Computer Science', ''),
 (331, '180331', 'Digital Design', 'M.Morris Mano Michael D.Ciletti  ', 1, 1, 'Pearson', '4', 0, 'Computer Science', 'No', 'Computer Science', ''),
@@ -684,7 +685,7 @@ INSERT INTO `config` (`key1`, `value1`) VALUES
 -- Table structure for table `history`
 --
 -- Creation: Feb 19, 2019 at 04:19 PM
--- Last update: Feb 28, 2019 at 02:39 AM
+-- Last update: Feb 28, 2019 at 12:23 PM
 --
 
 CREATE TABLE `history` (
@@ -710,7 +711,7 @@ DELIMITER ;
 -- Table structure for table `issued`
 --
 -- Creation: Feb 27, 2019 at 05:47 AM
--- Last update: Feb 28, 2019 at 02:39 AM
+-- Last update: Feb 28, 2019 at 12:23 PM
 --
 
 CREATE TABLE `issued` (
@@ -823,13 +824,13 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `issued`
 --
 ALTER TABLE `issued`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -852,7 +853,9 @@ DELIMITER $$
 --
 -- Events
 --
-CREATE DEFINER=`root`@`localhost` EVENT `fines` ON SCHEDULE EVERY 1 DAY STARTS '2019-02-19 22:23:06' ON COMPLETION NOT PRESERVE ENABLE DO update issued set fine=datediff(issued.issuedate,curdate())*(SELECT value from config where `key`='fine') where datediff(issued.issuedate,curdate())>(SELECT value from config where `key`='fine')$$
+CREATE DEFINER=`root`@`localhost` EVENT `temp` ON SCHEDULE EVERY 1 SECOND STARTS '2019-02-19 22:23:06' ON COMPLETION NOT PRESERVE ENABLE DO update issued set fine=10$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `fines` ON SCHEDULE EVERY 1 DAY STARTS '2019-02-19 22:23:06' ON COMPLETION NOT PRESERVE ENABLE DO update issued set fine=datediff(issued.returndate,curdate())*(SELECT value1 from config where `key1`='fine') where datediff(issued.returndate,curdate())>(SELECT value1 from config where `key1`='returndays')$$
 
 DELIMITER ;
 
