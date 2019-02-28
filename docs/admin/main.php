@@ -194,6 +194,29 @@
                   <div class="col-6 mt-5">
                       <div class="card">
                           <div class="card-body">
+                              <h4 class="header-title">Lost Book</h4>
+
+                                  <div class="form-group">
+                                      <label for="book3">Book ID</label>
+                                      <input type="text" class="form-control" id="lbook" aria-describedby="emailHelp" placeholder="Enter book ID">
+
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="student3">Student Register Number</label>
+                                      <input type="text" class="form-control" id="lstudent" aria-describedby="emailHelp" placeholder="Enter student register number">
+
+                                  </div>
+
+                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="lostIssued()">Renew</button>
+
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-6 mt-5">
+                      <div class="card">
+                          <div class="card-body">
                               <h4 class="header-title">No due certificate</h4>
 
 

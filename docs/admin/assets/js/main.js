@@ -96,6 +96,29 @@ alert(html);
 return false;
 }
 
+function lostIssued() {
+var book = document.getElementById("lbook").value;
+var student = document.getElementById("lstudent").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book + '&student1=' + student;
+if (book==''||student=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/lostissued.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 function modifyStudent() {
 var name = document.getElementById("name").value;
 var reg = document.getElementById("reg").value;
