@@ -53,7 +53,7 @@ try {
 
         }
         else {
-          echo "All books have no fines";
+          $flag = 1;
         }
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
@@ -64,6 +64,9 @@ try {
         else {
         echo "There are no fines to be collected.";
 
+        }
+        if ($flag == 1) {
+          echo "No books have fines";
         }
         }
         else {
