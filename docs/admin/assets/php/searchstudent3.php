@@ -55,7 +55,7 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "No entries matched";
+        echo "No books have been borrowed.";
 
         }
         }

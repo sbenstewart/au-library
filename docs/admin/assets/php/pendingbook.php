@@ -62,7 +62,7 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "No entries matched";
+        echo "There are no fines to be collected.";
 
         }
         }
