@@ -13,15 +13,14 @@ try {
     throw new Exception("You must be logged in to view the books.");
   }
 
-  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name'))";
+  $sql = "SELECT book.isbn,book.name,book.author,history.returndate FROM history INNER JOIN book ON book.id = history.bookid AND history.bookid in (SELECT bookid FROM history WHERE userid = (SELECT id from user where name='$name'))";
 
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
 
-
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author,history.returndate FROM history INNER JOIN book ON book.id = history.bookid AND history.bookid = (SELECT bookid FROM history WHERE userid = (SELECT id from user where name='$name'))") as $row)
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,history.returndate FROM history INNER JOIN book ON book.id = history.bookid AND history.bookid in (SELECT bookid FROM history WHERE userid = (SELECT id from user where name='$name'))") as $row)
         {
 
           echo '<tbody>';
@@ -49,10 +48,30 @@ try {
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
 
+        }
+        /* No rows matched -- do something else */
+        else {
+        //echo "No rows matched";
+
+        }
+        }
+        else {
+        //echo "You have some serious error";
+        }
 
 
 
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate FROM issued INNER JOIN book ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name'))") as $row)
+
+
+
+  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name'))";
+
+  if ($res = $conn->query($sql)) {
+
+      /* Check the number of rows that match the SELECT statement */
+      if ($res->fetchColumn() > 0) {
+
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate FROM issued INNER JOIN book ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name'))") as $row)
         {
 
           echo '<tbody>';
@@ -83,12 +102,12 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "No rows matched";
+        //echo "No rows matched";
 
         }
         }
         else {
-        echo "You have some serious error";
+        //echo "You have some serious error";
         }
 
 

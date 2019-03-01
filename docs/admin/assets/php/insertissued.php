@@ -53,6 +53,8 @@ try {
         foreach ($conn->query("SELECT value1 from config where key1='borrow'") as $row)
         {
           $borrowlimit=$row['value1'];
+          $borrowlimit=$borrowlimit-1;
+
         }
         }
         else {
