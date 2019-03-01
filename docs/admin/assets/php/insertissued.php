@@ -33,15 +33,7 @@ try {
           throw new Exception("Wrong book id.");
         }
         }
-  $sql = "SELECT * FROM book WHERE isbn = '$book2' and remaining > 0 and reference='no'";
-  if ($res = $conn->query($sql)) {
-      if ($res->fetchColumn() > 0) {
 
-        }
-        else {
-          throw new Exception("Book not available.");
-        }
-        }
 
   $sql = "SELECT id FROM user where reg = '$student2'";
   if ($res = $conn->query($sql)) {
@@ -53,6 +45,16 @@ try {
         }
         else {
           throw new Exception("Wrong student register number.");
+        }
+        }
+
+  $sql = "SELECT * FROM book WHERE isbn = '$book2' and remaining > 0 and reference='no'";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+
+        }
+        else {
+          throw new Exception("Book not available.");
         }
         }
   $count = $conn->exec("INSERT INTO issued (userid,bookid,issuedate,returndate) VALUES ('$userid', '$bookid', (SELECT CURDATE()), (SELECT ADDDATE(CURDATE(),(SELECT value1 FROM config WHERE key1='returndays'))))");
