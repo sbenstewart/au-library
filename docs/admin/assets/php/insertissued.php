@@ -65,7 +65,7 @@ try {
         foreach ($conn->query("SELECT COUNT(*) as temp FROM issued WHERE userid = '$userid'") as $row)
         {
             $bookscount=$row['temp'];
-            if($bookscount > $bookslimit)
+            if($bookscount > $borrowlimit)
             {
                 throw new Exception("Maximum book borrow limit exceeded.");
             }

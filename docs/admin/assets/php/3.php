@@ -27,7 +27,7 @@ try {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT isbn,name,author,remaining from book where isbn LIKE '%$code2%'") as $row)
+        foreach ($conn->query("SELECT isbn,name,author,count,remaining,edition,price,subject,reference,department,row from book where isbn LIKE '%$code2%'") as $row)
         {
 
           echo '<tbody>';
