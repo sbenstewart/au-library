@@ -36,7 +36,6 @@ try {
 
   $password2 = password_hash($password2, PASSWORD_BCRYPT);
 
-  echo $password2;
 
   $count = $conn->exec("INSERT INTO user (reg,name,password,course,dept,year,mail,phone) VALUES ('$reg2','$name2','$password2','$course2','$department2','$year2','$email2','$phone2')");
   echo "Student record has been inserted.";

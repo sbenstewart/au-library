@@ -29,6 +29,10 @@ try {
   }
   else{throw new Exception("<b>You must log in.</b>");}
 
+  $password2 = password_hash($password2, PASSWORD_BCRYPT);
+
+  echo $password2;
+
   $count = $conn->exec("UPDATE user SET name='$name2',password='$password2',course='$course2',dept='$department2',year='$year2',mail='$email2',phone='$phone2' where reg='$reg2'");
   echo "Student record has been modified.";
 
