@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 28, 2019 at 12:40 PM
+-- Generation Time: Mar 01, 2019 at 06:22 AM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -27,7 +27,7 @@ USE `library`;
 --
 -- Table structure for table `admin`
 --
--- Creation: Feb 20, 2019 at 03:41 AM
+-- Creation: Mar 01, 2019 at 05:32 AM
 --
 
 CREATE TABLE `admin` (
@@ -48,8 +48,8 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 --
 -- Table structure for table `book`
 --
--- Creation: Feb 26, 2019 at 04:19 PM
--- Last update: Feb 28, 2019 at 12:23 PM
+-- Creation: Mar 01, 2019 at 05:32 AM
+-- Last update: Mar 01, 2019 at 06:20 AM
 --
 
 CREATE TABLE `book` (
@@ -661,7 +661,7 @@ INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publi
 --
 -- Table structure for table `config`
 --
--- Creation: Feb 22, 2019 at 04:43 PM
+-- Creation: Mar 01, 2019 at 05:32 AM
 --
 
 CREATE TABLE `config` (
@@ -683,8 +683,8 @@ INSERT INTO `config` (`key1`, `value1`) VALUES
 --
 -- Table structure for table `history`
 --
--- Creation: Feb 19, 2019 at 04:19 PM
--- Last update: Feb 28, 2019 at 12:23 PM
+-- Creation: Mar 01, 2019 at 05:32 AM
+-- Last update: Mar 01, 2019 at 06:20 AM
 --
 
 CREATE TABLE `history` (
@@ -709,8 +709,8 @@ DELIMITER ;
 --
 -- Table structure for table `issued`
 --
--- Creation: Feb 27, 2019 at 05:47 AM
--- Last update: Feb 28, 2019 at 12:23 PM
+-- Creation: Mar 01, 2019 at 05:32 AM
+-- Last update: Mar 01, 2019 at 06:20 AM
 --
 
 CREATE TABLE `issued` (
@@ -742,14 +742,15 @@ DELIMITER ;
 --
 -- Table structure for table `user`
 --
--- Creation: Feb 20, 2019 at 04:21 AM
+-- Creation: Mar 01, 2019 at 05:47 AM
+-- Last update: Mar 01, 2019 at 06:21 AM
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL COMMENT 'id for db access',
   `reg` varchar(16) NOT NULL COMMENT 'roll number given for each student in the college',
   `name` varchar(36) NOT NULL COMMENT 'name of the student',
-  `password` varchar(36) NOT NULL COMMENT 'password assigned to the student',
+  `password` varchar(300) NOT NULL COMMENT 'password assigned to the student',
   `course` varchar(100) NOT NULL,
   `dept` varchar(100) NOT NULL,
   `year` varchar(8) NOT NULL,
@@ -762,8 +763,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `reg`, `name`, `password`, `course`, `dept`, `year`, `mail`, `phone`) VALUES
-(1, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test'),
-(2, '2', 'ben', 'test', 'cse', 'cse', '2018', 'sbenstewart@gmail.com', '9489408090');
+(4, 'test', 'test', '$2y$10$3uiYa9mYTs8qC7Uda.UA5uKobIVPj6ckdvO9.q/AVEW4HtVGbzZD.', 'B.E.', 'test', 'test', 'test@gmail.com', '123456789');
 
 --
 -- Indexes for dumped tables
@@ -817,25 +817,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=583;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=584;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `issued`
 --
 ALTER TABLE `issued`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for db access', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for db access', AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
