@@ -47,6 +47,32 @@ try {
           throw new Exception("Wrong student register number.");
         }
         }
+  $sql = "SELECT value1 from config where key1='borrow'";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+        foreach ($conn->query("SELECT value1 from config where key1='borrow'") as $row)
+        {
+          $borrowlimit=$row['value1'];
+        }
+        }
+        else {
+          throw new Exception("Check your internet connection.");
+        }
+        }
+  $sql = "SELECT COUNT(*) FROM issued WHERE userid = '$userid'";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+        foreach ($conn->query("SELECT COUNT(*) as temp FROM issued WHERE userid = '$userid'") as $row)
+        {
+            $bookscount=$row['temp'];
+            if($bookscount > $bookslimit)
+            {
+                throw new Exception("Maximum book borrow limit exceeded.");
+            }
+        }
+
+        }
+        }
 
   $sql = "SELECT * FROM book WHERE isbn = '$book2' and remaining > 0 and reference='no'";
   if ($res = $conn->query($sql)) {
