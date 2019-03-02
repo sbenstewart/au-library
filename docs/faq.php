@@ -123,61 +123,83 @@
                                 <div id="accordion5" class="according accordion-s2 gradiant-bg">
                                     <div class="card">
                                         <div class="card-header">
-                                            <a class="card-link" data-toggle="collapse" href="#accordion51">How do I take a book</a>
+                                            <a class="card-link" data-toggle="collapse" href="#accordion51">How to access.</a>
                                         </div>
                                         <div id="accordion51" class="collapse show" data-parent="#accordion5">
                                             <div class="card-body">
-                                                For taking a book you must registered with your roll number.For further details contact your Resident Counselor
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion52">How do I renew a book</a>
-                                        </div>
-                                        <div id="accordion52" class="collapse show" data-parent="#accordion5">
-                                            <div class="card-body">
+                                              1.	ID card is compulsory.<br>
+                                              2.	Registration must be done to access the CEG Hostels Library.
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header">
-                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion53">Limit on the number of books that can be borrowed</a>
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion52">Library Discipline</a>
                                         </div>
-                                        <div id="accordion53" class="collapse show" data-parent="#accordion5">
+                                        <div id="accordion52" class="collapse" data-parent="#accordion5">
                                             <div class="card-body">
-                                                You can borrow books upto 5 numbers.If you need more books then you can contact the librarian
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion54">What are the fines for overdue or lost books or damaged books?</a>
-                                        </div>
-                                        <div id="accordion54" class="collapse show" data-parent="#accordion5">
-                                            <div class="card-body">
+                                              1.	Enter your name / roll number and sign the register before entering the library.<br>
+                                              2.	No personal belongings will be allowed inside the library.<br>
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header">
-                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion55">Books available</a>
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion53">Working hours</a>
                                         </div>
-                                        <div id="accordion55" class="collapse show" data-parent="#accordion5">
+                                        <div id="accordion53" class="collapse" data-parent="#accordion5">
                                             <div class="card-body">
-                                               The books that related to your department are available here
+                                              <ul>
+                                                  <li>Monday to Friday</li>
+                                                  <li>Weekends</li>
+                                                  <li>During exams</li>
+                                              <ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header">
-                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion56">Contact</a>
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion54">Borrow Books</a>
                                         </div>
-                                        <div id="accordion56" class="collapse show" data-parent="#accordion5">
+                                        <div id="accordion54" class="collapse" data-parent="#accordion5">
                                             <div class="card-body">
+                                              1.	The books will be issued to the students on issuing the hostel ID cards.<br>
+                                              2.	Reference books will not be issued.<br>
+                                              3.	The librarian will notify the maximum number of books that can be borrowed at an instance.<br>
+                                              4.	At the time of borrowing the student must check the condition of the book and must take care to return it in good condition.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion55">Overdue Charges</a>
+                                        </div>
+                                        <div id="accordion55" class="collapse" data-parent="#accordion5">
+                                            <div class="card-body">
+                                               Books must be returned on or before the due date mentioned. If returned late the fine will be charged based on the norms.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion56">Lost Books</a>
+                                        </div>
+                                        <div id="accordion56" class="collapse" data-parent="#accordion5">
+                                            <div class="card-body">
+                                              If the book is lost, the borrower should replace it with the same / latest edition or pay double the cost of the lost book.
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion57">Nodue Certificate</a>
+                                        </div>
+                                        <div id="accordion57" class="collapse" data-parent="#accordion5">
+                                            <div class="card-body">
+                                              Each student shall obtain the no due certificate from the CEG Hostels Library after returning all the borrowed books.
                                             </div>
                                         </div>
                                     </div>
