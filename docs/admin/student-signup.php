@@ -1,3 +1,11 @@
+<?php session_start();  ob_start();
+    if (!isset($_SESSION['reg'])) {
+    header('location:index.php');
+    echo "Must redirect";
+    exit(); // <-- terminates the current script
+  }
+// close the php tag and write your HTML :)
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -47,32 +55,32 @@
                 <div class="menu-inner">
                   <nav>
                       <ul class="metismenu" id="menu">
-                        <li><a href="main.html"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
+                        <li><a href="main.php"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
 
 
                         <li class="active">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
                             <ul class="collapse">
-                                <li class="active"><a href="student-signup.html">Signup</a></li>
-                                <li><a href="student-change-details.html">Change details</a></li>
-                                <li><a href="search-students.html">Search</a></li>
+                                <li class="active"><a href="student-signup.php">Signup</a></li>
+                                <li><a href="student-change-details.php">Change details</a></li>
+                                <li><a href="search-students.php">Search</a></li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
                             <ul class="collapse">
-                                <li><a href="book-entry.html">New entry</a></li>
-                                <li><a href="modify-book-entry.html">Change details</a></li>
-                                <li><a href="search-books.html">Search</a></li>
+                                <li><a href="book-entry.php">New entry</a></li>
+                                <li><a href="modify-book-entry.php">Change details</a></li>
+                                <li><a href="search-books.php">Search</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="fines.html"><i class="fa fa-university"></i> <span>Fines</span></a></li>
-                        <li><a href="superuser.html"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
-                        <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                        <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                        <li><a href="about.html#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
+                        <li><a href="fines.php"><i class="fa fa-university"></i> <span>Fines</span></a></li>
+                        <li><a href="superuser.php"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
+                        <li><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                        <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                        <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
                       </ul>
                   </nav>
@@ -106,8 +114,7 @@
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Details</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <a class="dropdown-item" href="logout.php">Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -169,7 +176,11 @@
                                                 <select id="course" class="custom-select">
                                                     <option selected="">Chose your course</option>
                                                     <option value="B.E.">B.E.</option>
+                                                    <option value="B.Tech.">B.Tech.</option>
                                                     <option value="M.E.">M.E.</option>
+                                                    <option value="M.Tech.">M.Tech.</option>
+                                                    <option value="M.C.A.">M.C.A.</option>
+                                                    <option value="M.B.A.">M.B.A.</option>
                                                     <option value="M.Sc.">M.Sc.</option>
                                                     <option value="Ph.D.">Ph.D.</option>
                                                 </select>

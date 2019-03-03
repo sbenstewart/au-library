@@ -1,26 +1,27 @@
-<?php
-session_start();
+<?php session_start();
 require_once 'dbconfig.php';
 
 try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
-  if(isset($_SESSION["name"]))
+  if(isset($_SESSION['name']))
   {
-  $name=$_SESSION["name"];
+  $name=$_SESSION['name'];
   }
   else {
     throw new Exception("<b>You must be logged in to view the books.</b>");
   }
 
-  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))";
+  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name'))";
+
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
 
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author,history.returndate FROM history INNER JOIN book ON book.id = history.bookid AND history.bookid = (SELECT bookid FROM history WHERE userid = (SELECT id from user where reg='$name'))") as $row)
+
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,history.returndate FROM history INNER JOIN book ON book.id = history.bookid AND history.bookid = (SELECT bookid FROM history WHERE userid = (SELECT id from user where name='$name'))") as $row)
         {
 
           echo '<tbody>';
@@ -48,7 +49,10 @@ try {
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
 
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate FROM issued INNER JOIN book ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$name'))") as $row)
+
+
+
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author,issued.returndate FROM issued INNER JOIN book ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name'))") as $row)
         {
 
           echo '<tbody>';
@@ -79,12 +83,12 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "";
+        echo "No rows matched";
 
         }
         }
         else {
-        echo "";
+        echo "You have some serious error";
         }
 
 

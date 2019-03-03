@@ -34,7 +34,7 @@ try {
 
         $count = $conn->exec("UPDATE config SET value1='$fine2' where key1='borrow'");
 
-        echo "Birrow limit changed from $fine1 to $fine2";
+        echo "Borrow limit changed from $fine1 to $fine2";
 
         }
         /* No rows matched -- do something else */

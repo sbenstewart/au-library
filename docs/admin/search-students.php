@@ -1,10 +1,18 @@
+<?php session_start();  ob_start();
+    if (!isset($_SESSION['reg'])) {
+    header('location:index.php');
+    echo "Must redirect";
+    exit(); // <-- terminates the current script
+  }
+// close the php tag and write your HTML :)
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Books</title>
+    <title>Students</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -47,32 +55,32 @@
                 <div class="menu-inner">
                   <nav>
                       <ul class="metismenu" id="menu">
-                        <li><a href="main.html"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
+                        <li><a href="main.php"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
 
 
-                        <li>
+                        <li class="active">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
                             <ul class="collapse">
-                                <li><a href="student-signup.html">Signup</a></li>
-                                <li><a href="student-change-details.html">Change details</a></li>
-                                <li><a href="search-students.html">Search</a></li>
+                                <li><a href="student-signup.php">Signup</a></li>
+                                <li><a href="student-change-details.php">Change details</a></li>
+                                <li class="active"><a href="search-students.php">Search</a></li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
                             <ul class="collapse">
-                                <li><a href="book-entry.html">New entry</a></li>
-                                <li><a href="modify-book-entry.html">Change details</a></li>
-                                <li><a href="search-books.html">Search</a></li>
+                                <li><a href="book-entry.php">New entry</a></li>
+                                <li><a href="modify-book-entry.php">Change details</a></li>
+                                <li><a href="search-books.php">Search</a></li>
 
                             </ul>
                         </li>
-                        <li class="active"><a href="fines.html"><i class="fa fa-university"></i> <span>Fines</span></a></li>
-                        <li><a href="superuser.html"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
-                        <li><a href="faq.html"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                        <li><a href="about.html"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                        <li><a href="about.html#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
+                        <li><a href="fines.php"><i class="fa fa-university"></i> <span>Fines</span></a></li>
+                        <li><a href="superuser.php"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
+                        <li><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                        <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                        <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
                       </ul>
                   </nav>
@@ -106,8 +114,7 @@
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Details</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <a class="dropdown-item" href="logout.php">Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -120,22 +127,32 @@
                   <div class="col-12 mt-5">
                       <div class="card">
                           <div class="card-body">
-                              <h3 class="header-title">Search details</h3>
-                              <label> Click the button below to load the history of you. We really value your privacy.</label>
-                              <br>
+                              <h4 class="header-title">Search borrowed books details</h4>
 
-                              <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="pendingBook()">Check pending books</button>
+                                  <div class="form-group">
+                                      <label for="roll">Student roll number</label>
+                                      <input type="text" class="form-control" id="roll" aria-describedby="emailHelp" placeholder="Enter student roll number">
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="roll">Student name</label>
+                                      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter student name">
+                                  </div>
+
+
+
+
+                                  <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchStudent()">Search</button>
 
                           </div>
                       </div>
                   </div>
-
-
                     <!-- table primary start -->
+
                     <div class="col-lg-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Pending Books</h4>
+                                <h4 class="header-title">Issued Books</h4>
                                 <div class="single-table">
                                     <div class="table-responsive">
                                         <table class="table text-center">
@@ -144,11 +161,60 @@
                                                     <th scope="col">S. No</th>
                                                     <th scope="col">Book ID</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Student</th>
-                                                    <th scope="col">Fine Amount(INR)</th>
+                                                    <th scope="col">Due Date</th>
+                                                    <th scope="col">Fine (INR)</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="tablebody"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Search student details</h4>
+
+                                    <div class="form-group">
+                                        <label for="roll1">Student roll number</label>
+                                        <input type="text" class="form-control" id="roll1" aria-describedby="emailHelp" placeholder="Enter student roll number">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="roll1">Student name</label>
+                                        <input type="text" class="form-control" id="name1" aria-describedby="emailHelp" placeholder="Enter student name">
+                                    </div>
+
+
+
+
+                                    <button type="button" class="btn btn-primary mt-4 pr-4 pl-4" onclick="searchStudentDetails()">Details</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Student Details</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-primary">
+                                                <tr class="text-white">
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Phone</th>
+                                                    <th scope="col">Dept</th>
+                                                    <th scope="col">Course</th>
+                                                    <th scope="col">Year</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tablebody1"></tbody>
                                         </table>
                                     </div>
                                 </div>

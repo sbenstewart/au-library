@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 26, 2019 at 04:28 PM
+-- Generation Time: Feb 27, 2019 at 02:23 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -49,7 +49,6 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 -- Table structure for table `book`
 --
 -- Creation: Feb 26, 2019 at 04:19 PM
--- Last update: Feb 26, 2019 at 04:20 PM
 --
 
 CREATE TABLE `book` (
@@ -73,9 +72,9 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publisher`, `edition`, `price`, `subject`, `reference`, `department`, `row`) VALUES
-(1, '180001', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 390, 'Physics', 'Yes', 'Physics', ''),
+(1, '180001', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 0, 'Scitech Publications', '2', 390, 'Physics', 'Yes', 'Physics', ''),
 (2, '180002', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 375, 'Physics', 'No', 'Physics', ''),
-(3, '180001', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 390, 'Physics', 'Yes', 'Physics', ''),
+(3, '180003', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 390, 'Physics', 'Yes', 'Physics', ''),
 (4, '180004', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 425, 'Physics', 'No', 'Physics', ''),
 (5, '180005', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 425, 'Physics', 'No', 'Physics', ''),
 (6, '180006', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 375, 'Physics', 'No', 'Physics', ''),
@@ -684,7 +683,6 @@ INSERT INTO `config` (`key1`, `value1`) VALUES
 -- Table structure for table `history`
 --
 -- Creation: Feb 19, 2019 at 04:19 PM
--- Last update: Feb 26, 2019 at 04:17 PM
 --
 
 CREATE TABLE `history` (
@@ -695,6 +693,13 @@ CREATE TABLE `history` (
   `returndate` date NOT NULL,
   `fine` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`id`, `userid`, `bookid`, `issuedate`, `returndate`, `fine`) VALUES
+(5, 2, 1, '2019-02-27', '2019-04-13', 0);
 
 --
 -- Triggers `history`
@@ -709,8 +714,7 @@ DELIMITER ;
 --
 -- Table structure for table `issued`
 --
--- Creation: Feb 24, 2019 at 07:02 AM
--- Last update: Feb 26, 2019 at 04:17 PM
+-- Creation: Feb 27, 2019 at 05:47 AM
 --
 
 CREATE TABLE `issued` (
@@ -721,6 +725,13 @@ CREATE TABLE `issued` (
   `returndate` date DEFAULT NULL,
   `fine` int(100) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `issued`
+--
+
+INSERT INTO `issued` (`id`, `userid`, `bookid`, `issuedate`, `returndate`, `fine`) VALUES
+(6, 2, 1, '2019-02-27', '2019-04-13', 0);
 
 --
 -- Triggers `issued`
@@ -762,7 +773,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `reg`, `name`, `password`, `course`, `dept`, `year`, `mail`, `phone`) VALUES
-(1, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test');
+(1, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test'),
+(2, '2', 'ben', 'test', 'cse', 'cse', '2018', 'sbenstewart@gmail.com', '9489408090');
 
 --
 -- Indexes for dumped tables
@@ -793,7 +805,7 @@ ALTER TABLE `history`
 --
 ALTER TABLE `issued`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `userid` (`userid`),
+  ADD UNIQUE KEY `unique_borrow` (`userid`,`bookid`),
   ADD KEY `bookid` (`bookid`);
 
 --
@@ -822,19 +834,19 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `issued`
 --
 ALTER TABLE `issued`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for db access', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for db access', AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

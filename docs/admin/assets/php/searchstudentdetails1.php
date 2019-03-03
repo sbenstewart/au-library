@@ -35,21 +35,22 @@ try {
 
           $name2 = $row['name'];
           echo $name2;
-          echo "</th><td>";
-          $course2 = $row['course'];
-          echo $course2;
-          echo "</td><td>";
-          $dept2 = $row['dept'];
-          echo $dept2;
-          echo "</td><td>";
-          $year2 = $row['year'];
-          echo $year2;
           echo "</td><td>";
           $mail2 = $row['mail'];
           echo $mail2;
           echo "</td><td>";
           $phone2 = $row['phone'];
           echo $phone2;
+          echo "</td><td>";
+          $dept2 = $row['dept'];
+          echo $dept2;
+          echo "</th><td>";
+          $course2 = $row['course'];
+          echo $course2;
+          echo "</td><td>";
+          $year2 = $row['year'];
+          echo $year2;
+
           echo "</td></tr></tbody>";
           $count = $count+1;
 

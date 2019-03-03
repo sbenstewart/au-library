@@ -127,15 +127,43 @@ return false;
 
 function searchStudent() {
 var roll = document.getElementById("roll").value;
+var name = document.getElementById("name").value;
 // Returns successful data submission message when the entered information is stored in database.
-var dataString = '&roll1=' + roll;
-if (roll=='') {
-alert("Please Enter the roll number.");
-} else {
+var dataString = '&roll1=' + roll + '&name1=' + name;
+if (roll=='' && name=='') {
+alert("Please give details to search.");
+}
+if (roll!='' && name=='') {
   // AJAX code to submit form.
   jQuery.ajax({
   type: "POST",
-  url: "assets/php/searchstudent.php",
+  url: "assets/php/searchstudent1.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody').innerHTML=html;
+}
+});
+}
+if (roll=='' && name!='') {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudent2.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody').innerHTML=html;
+}
+});
+}
+if (roll!='' && name!='') {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudent3.php",
   processData: false,
   data: dataString,
   cache: false,
@@ -149,20 +177,48 @@ return false;
 
 function searchStudentDetails() {
 var roll = document.getElementById("roll1").value;
+var name = document.getElementById("name1").value;
 // Returns successful data submission message when the entered information is stored in database.
-var dataString = '&roll1=' + roll;
-if (roll=='') {
-alert("Please Enter the roll number.");
-} else {
+var dataString = var dataString = '&roll1=' + roll + '&name1=' + name;
+if (roll=='' && name=='') {
+alert("Please give details to search.");
+}
+if (roll!='' && name=='') {
   // AJAX code to submit form.
   jQuery.ajax({
   type: "POST",
-  url: "assets/php/searchstudentdetails.php",
+  url: "assets/php/searchstudentdetails1.php",
   processData: false,
   data: dataString,
   cache: false,
   success: function(html) {
-  document.getElementById('tablebody1').innerHTML=html;
+  document.getElementById('tablebody').innerHTML=html;
+}
+});
+}
+if (roll=='' && name!='') {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudentdetails2.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody').innerHTML=html;
+}
+});
+}
+if (roll!='' && name!='') {
+  // AJAX code to submit form.
+  jQuery.ajax({
+  type: "POST",
+  url: "assets/php/searchstudentdetails3.php",
+  processData: false,
+  data: dataString,
+  cache: false,
+  success: function(html) {
+  document.getElementById('tablebody').innerHTML=html;
 }
 });
 }
@@ -208,7 +264,7 @@ processData: false,
 data: dataString,
 cache: false,
 success: function(html) {
-if(html.startsWith("Logged")){window.location = "main.html";}
+if(html.startsWith("Logged")){window.location = "main.php";}
 else{alert(html);}
 }
 });
