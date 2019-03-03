@@ -1,6 +1,6 @@
 <?php session_start();  ob_start();
-    if (!isset($_SESSION['reg'])) {
-    header('location:index.php');
+    if (!isset($_SESSION['admin'])) {
+    header('location:index.html');
     echo "Must redirect";
     exit(); // <-- terminates the current script
   }
@@ -52,37 +52,17 @@
             </div>
             <div class="main-menu">
                 <div class="menu-inner">
-                  <nav>
-                      <ul class="metismenu" id="menu">
-                        <li><a href="main.php"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
+                    <nav>
+                        <ul class="metismenu" id="menu">
 
+                            <li><a href="borrowed-books.php"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
+                            <li><a href="search-books.php"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
+                            <li class="active"><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                            <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                            <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
-                        <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
-                            <ul class="collapse">
-                                <li><a href="student-signup.php">Signup</a></li>
-                                <li><a href="student-change-details.php">Change details</a></li>
-                                <li><a href="search-students.php">Search</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
-                            <ul class="collapse">
-                                <li><a href="book-entry.php">New entry</a></li>
-                                <li><a href="modify-book-entry.php">Change details</a></li>
-                                <li><a href="search-books.php">Search</a></li>
-
-                            </ul>
-                        </li>
-                        <li><a href="fines.php"><i class="fa fa-university"></i> <span>Fines</span></a></li>
-                        <li><a href="superuser.php"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
-                        <li  class="active"><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                        <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                        <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
-
-                      </ul>
-                  </nav>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -111,7 +91,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="logout.php">Log Out</a>
                             </div>
@@ -143,34 +123,83 @@
                                 <div id="accordion5" class="according accordion-s2 gradiant-bg">
                                     <div class="card">
                                         <div class="card-header">
-                                            <a class="card-link" data-toggle="collapse" href="#accordion51">Collapsible Group
-                                                Item #1</a>
+                                            <a class="card-link" data-toggle="collapse" href="#accordion51">How to access.</a>
                                         </div>
                                         <div id="accordion51" class="collapse show" data-parent="#accordion5">
                                             <div class="card-body">
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                                              1.	ID card is compulsory.<br>
+                                              2.	Registration must be done to access the CEG Hostels Library.
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header">
-                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion52">Collapsible
-                                                Group Item #2</a>
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion52">Library Discipline</a>
                                         </div>
-                                        <div id="accordion52" class="collapse show" data-parent="#accordion5">
+                                        <div id="accordion52" class="collapse" data-parent="#accordion5">
                                             <div class="card-body">
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                                              1.	Enter your name / roll number and sign the register before entering the library.<br>
+                                              2.	No personal belongings will be allowed inside the library.<br>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-header">
-                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion53">Collapsible
-                                                Group Item #3</a>
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion53">Working hours</a>
                                         </div>
-                                        <div id="accordion53" class="collapse show" data-parent="#accordion5">
+                                        <div id="accordion53" class="collapse" data-parent="#accordion5">
                                             <div class="card-body">
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                                              <ul>
+                                                  <li>Monday to Friday</li>
+                                                  <li>Weekends</li>
+                                                  <li>During exams</li>
+                                              <ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion54">Borrow Books</a>
+                                        </div>
+                                        <div id="accordion54" class="collapse" data-parent="#accordion5">
+                                            <div class="card-body">
+                                              1.	The books will be issued to the students on issuing the hostel ID cards.<br>
+                                              2.	Reference books will not be issued.<br>
+                                              3.	The librarian will notify the maximum number of books that can be borrowed at an instance.<br>
+                                              4.	At the time of borrowing the student must check the condition of the book and must take care to return it in good condition.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion55">Overdue Charges</a>
+                                        </div>
+                                        <div id="accordion55" class="collapse" data-parent="#accordion5">
+                                            <div class="card-body">
+                                               Books must be returned on or before the due date mentioned. If returned late the fine will be charged based on the norms.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion56">Lost Books</a>
+                                        </div>
+                                        <div id="accordion56" class="collapse" data-parent="#accordion5">
+                                            <div class="card-body">
+                                              If the book is lost, the borrower should replace it with the same / latest edition or pay double the cost of the lost book.
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion57">Nodue Certificate</a>
+                                        </div>
+                                        <div id="accordion57" class="collapse" data-parent="#accordion5">
+                                            <div class="card-body">
+                                              Each student shall obtain the no due certificate from the CEG Hostels Library after returning all the borrowed books.
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +209,7 @@
                     </div>
                     <!-- accordion style 5 end -->
                     <!-- accordion style 6 start -->
-                    <div class="col-lg-12 mt-5">
+                    <!--<div class="col-lg-12 mt-5">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Help</h4>
@@ -221,7 +250,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- accordion style 6 end -->
                 </div>
                 <!-- accroding end -->

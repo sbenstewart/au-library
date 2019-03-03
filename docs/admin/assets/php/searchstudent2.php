@@ -21,12 +21,12 @@ try {
   else{throw new Exception("<b>You must log in.</b>");}
 
 
-  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name2'))";
+  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name2'))";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT book.isbn,book.name,issued.returndate,issued.fine FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid = (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name2'))") as $row)
+        foreach ($conn->query("SELECT book.isbn,book.name,issued.returndate,issued.fine FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where name='$name2'))") as $row)
         {
 
           echo '<tbody>';
@@ -42,11 +42,8 @@ try {
           $temp2 = $row['returndate'];
           echo $temp2;
           echo "</td><td>";
-          $remaining2 = $row['remaining'];
-          $availability = 'Yes';
-          if($remaining2==0)
-          {$availability='No';}
-          echo $availability;
+          $remaining2 = $row['fine'];
+          echo $remaining2;
           echo "</td></tr></tbody>";
           $count = $count+1;
 
@@ -57,7 +54,7 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "";
+        echo "No books have been borrowed.";
 
         }
         }

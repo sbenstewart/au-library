@@ -96,6 +96,29 @@ alert(html);
 return false;
 }
 
+function lostIssued() {
+var book = document.getElementById("lbook").value;
+var student = document.getElementById("lstudent").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = '&book1=' + book + '&student1=' + student;
+if (book==''||student=='') {
+alert("Please Fill All Fields");
+} else {
+// AJAX code to submit form.
+jQuery.ajax({
+type: "POST",
+url: "assets/php/lostissued.php",
+processData: false,
+data: dataString,
+cache: false,
+success: function(html) {
+alert(html);
+}
+});
+}
+return false;
+}
+
 function modifyStudent() {
 var name = document.getElementById("name").value;
 var reg = document.getElementById("reg").value;
@@ -179,7 +202,7 @@ function searchStudentDetails() {
 var roll = document.getElementById("roll1").value;
 var name = document.getElementById("name1").value;
 // Returns successful data submission message when the entered information is stored in database.
-var dataString = var dataString = '&roll1=' + roll + '&name1=' + name;
+var dataString = '&roll1=' + roll + '&name1=' + name;
 if (roll=='' && name=='') {
 alert("Please give details to search.");
 }
@@ -192,7 +215,7 @@ if (roll!='' && name=='') {
   data: dataString,
   cache: false,
   success: function(html) {
-  document.getElementById('tablebody').innerHTML=html;
+  document.getElementById('tablebody1').innerHTML=html;
 }
 });
 }
@@ -205,7 +228,7 @@ if (roll=='' && name!='') {
   data: dataString,
   cache: false,
   success: function(html) {
-  document.getElementById('tablebody').innerHTML=html;
+  document.getElementById('tablebody1').innerHTML=html;
 }
 });
 }
@@ -218,7 +241,7 @@ if (roll!='' && name!='') {
   data: dataString,
   cache: false,
   success: function(html) {
-  document.getElementById('tablebody').innerHTML=html;
+  document.getElementById('tablebody1').innerHTML=html;
 }
 });
 }
@@ -401,7 +424,7 @@ function insertBook() {
 var bookid = document.getElementById("bookid").value;
 var name = document.getElementById("name").value;
 var author = document.getElementById("author").value;
-var count = document.getElementById("count").value;
+var count = document.getElementById("ref").value;
 var publisher = document.getElementById("publisher").value;
 var edition = document.getElementById("edition").value;
 var price = document.getElementById("price").value;
@@ -476,7 +499,7 @@ function modifyBook() {
 var bookid = document.getElementById("bookid").value;
 var name = document.getElementById("name").value;
 var author = document.getElementById("author").value;
-var count = document.getElementById("count").value;
+var count = document.getElementById("ref").value;
 var publisher = document.getElementById("publisher").value;
 var edition = document.getElementById("edition").value;
 var price = document.getElementById("price").value;

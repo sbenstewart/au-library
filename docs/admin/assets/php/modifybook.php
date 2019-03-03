@@ -31,7 +31,7 @@ try {
   }
   else{throw new Exception("<b>You must log in.</b>");}
 
-  $count = $conn->exec("UPDATE book SET name='$name2',author='$author2',count='$count2',remaining='$count2',publisher='$publisher2',edition='$edition2',price='$price2',subject='$subject2',reference='yes',department='$department2',row='$row2' where isbn='$bookid2'");
+  $count = $conn->exec("UPDATE book SET name='$name2',author='$author2',reference='$count2',publisher='$publisher2',edition='$edition2',price='$price2',subject='$subject2',department='$department2',row='$row2' where isbn='$bookid2'");
   echo "Book has been modified.";
 
 

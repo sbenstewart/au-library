@@ -1,6 +1,6 @@
 <?php session_start();  ob_start();
-    if (!isset($_SESSION['reg'])) {
-    header('location:index.php');
+    if (!isset($_SESSION['admin'])) {
+    header('location:index.html');
     echo "Must redirect";
     exit(); // <-- terminates the current script
   }
@@ -53,37 +53,17 @@
             </div>
             <div class="main-menu">
                 <div class="menu-inner">
-                  <nav>
-                      <ul class="metismenu" id="menu">
-                        <li class="active"><a href="main.php"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
+                    <nav>
+                        <ul class="metismenu" id="menu">
 
+                            <li><a href="borrowed-books.php"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
+                            <li><a href="search-books.php"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
+                            <li><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                            <li class="active"><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                            <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
-                        <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
-                            <ul class="collapse">
-                                <li><a href="student-signup.php">Signup</a></li>
-                                <li><a href="student-change-details.php">Change details</a></li>
-                                <li><a href="search-students.php">Search</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
-                            <ul class="collapse">
-                                <li><a href="book-entry.php">New entry</a></li>
-                                <li><a href="modify-book-entry.php">Change details</a></li>
-                                <li><a href="search-books.php">Search</a></li>
-
-                            </ul>
-                        </li>
-                        <li><a href="fines.php"><i class="fa fa-university"></i> <span>Fines</span></a></li>
-                        <li><a href="superuser.php"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
-                        <li><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                        <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                        <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
-
-                      </ul>
-                  </nav>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -112,7 +92,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="logout.php">Log Out</a>
                             </div>
@@ -121,49 +101,9 @@
                 </div>
             </div>
             <!-- page title area end -->
-            <div class="main-content-inner">
-                <div class="row">
-                    <!-- nav tab start -->
 
-                    <!-- nav tab end -->
-                    <!-- anchor tab start -->
 
-                    <!-- anchor tab end -->
-                    <!-- tab start -->
 
-                    <!-- tab end -->
-                    <!-- left align tab start -->
-                    <div class="col-lg-12 mt-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-md-flex">
-                                    <div class="nav flex-column nav-pills mr-4 mb-3 mb-sm-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-                                    </div>
-                                    <div class="tab-content" id="v-pills-tabContent">
-                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- left align tab end -->
-                </div>
-            </div>
 
             <div class="main-content-inner">
                 <div class="row">
@@ -182,68 +122,22 @@
                             <div class="card-body">
                                 <div class="d-md-flex">
                                     <div class="nav flex-column nav-pills mr-4 mb-3 mb-sm-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">About</a>
+                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Why</a>
+                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">How</a>
+
                                     </div>
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
+                                            <p>Gaining knowledge is the first step to wisdom but sharing is the first step to humanity. The endearing shrine for gaining and sharing knowledege is nothing but the little world called library. Here is our library exclusive for our CEG hostellers to their needed books.</p>
                                         </div>
                                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
+                                            <p>College of Engineering Guindy is the place for gaining knowledge and sharing wisdom. CEG created many students who excelled in their respective domains. The best way to enrich their knowlegde through books is the library. So here is the initiative made by the students for the future generation - CEG Hostels Library.</p>
                                         </div>
                                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
+                                            <p>This initiative for the first time, is introduced exclusively for the hostellers. The students staying in hostels can easily access the required books to develop their academics by using this library. This library has the collection of books for various branches of Engineering. The site has been created with student welfare as it's foremost priority.</p>
                                         </div>
-                                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- left align tab end -->
-                </div>
-            </div>
 
-            <div class="main-content-inner">
-                <div class="row">
-                    <!-- nav tab start -->
-
-                    <!-- nav tab end -->
-                    <!-- anchor tab start -->
-
-                    <!-- anchor tab end -->
-                    <!-- tab start -->
-
-                    <!-- tab end -->
-                    <!-- left align tab start -->
-                    <div class="col-lg-12 mt-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-md-flex">
-                                    <div class="nav flex-column nav-pills mr-4 mb-3 mb-sm-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-                                    </div>
-                                    <div class="tab-content" id="v-pills-tabContent">
-                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -258,51 +152,63 @@
 
                                 </div>
                                 <div class="member-box">
+                                  <div class="s-member">
+                                      <div class="media align-items-center">
+                                          <div class="media-body ml-5">
+                                              <p>Mr. G. Manikandan</p><span>Department of Computer Science</span><span>Mentor</span>
+                                          </div>
+                                          <div class="tm-social">
+
+                                          </div>
+                                      </div>
+                                  </div>
                                     <div class="s-member">
                                         <div class="media align-items-center">
-                                            <img src="assets/images/team/team-author1.jpg" class="d-block ui-w-30 rounded-circle" alt="">
                                             <div class="media-body ml-5">
-                                                <p>S. Ben Stewart</p><span>Manager</span>
+                                                <p>S. Ben Stewart</p><span>Lead Developer</span>
                                             </div>
                                             <div class="tm-social">
-                                                <a href="#"><i class="fa fa-phone"></i></a>
-                                                <a href="#"><i class="fa fa-envelope"></i></a>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="s-member">
                                         <div class="media align-items-center">
-                                            <img src="assets/images/team/team-author2.jpg" class="d-block ui-w-30 rounded-circle" alt="">
                                             <div class="media-body ml-5">
-                                                <p>Sivakailash</p><span>UI design</span>
+                                                <p>Sivakailash</p><span>UI/UX designer</span>
                                             </div>
                                             <div class="tm-social">
-                                                <a href="#"><i class="fa fa-phone"></i></a>
-                                                <a href="#"><i class="fa fa-envelope"></i></a>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="s-member">
                                         <div class="media align-items-center">
-                                            <img src="assets/images/team/team-author3.jpg" class="d-block ui-w-30 rounded-circle" alt="">
                                             <div class="media-body ml-5">
-                                                <p>Santhosh</p><span>UI design</span>
+                                                <p>Santhosh</p><span>Lead Tester</span>
                                             </div>
                                             <div class="tm-social">
-                                                <a href="#"><i class="fa fa-phone"></i></a>
-                                                <a href="#"><i class="fa fa-envelope"></i></a>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="s-member">
                                         <div class="media align-items-center">
-                                            <img src="assets/images/team/team-author4.jpg" class="d-block ui-w-30 rounded-circle" alt="">
                                             <div class="media-body ml-5">
-                                                <p>Dhanush</p><span>UI design</span>
+                                                <p>Dhanush</p><span>Management Head</span>
                                             </div>
                                             <div class="tm-social">
-                                                <a href="#"><i class="fa fa-phone"></i></a>
-                                                <a href="#"><i class="fa fa-envelope"></i></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="s-member">
+                                        <div class="media align-items-center">
+                                            <div class="media-body ml-5">
+                                                <p>Varadharajan</p><span>Initiator</span>
+                                            </div>
+                                            <div class="tm-social">
+
                                             </div>
                                         </div>
                                     </div>
@@ -315,71 +221,23 @@
                     <div class="col-xl-6 col-lg-5 col-md-12 mt-5">
                       <div class="card">
                           <div class="card-body">
+                            <div class="d-sm-flex flex-wrap justify-content-between mb-4 align-items-center">
+                                <h4 class="header-title mb-0">A message from the team</h4>
+
+                            </div>
                               <div class="d-md-flex">
-                                  <div class="nav flex-column nav-pills mr-4 mb-3 mb-sm-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                                      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                                      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                                      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-                                  </div>
-                                  <div class="tab-content" id="v-pills-tabContent">
-                                      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                      </div>
-                                      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                      </div>
-                                      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                      </div>
-                                      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat blanditiis eaque ab qui accusamus laudantium perspiciatis sint quibusdam at eius consequatur quos possimus aspernatur debitis deleniti sed odit provident repudiandae suscipit officiis, tempora voluptas, excepturi perferendis. Quasi delectus tempora temporibus ipsa soluta mollitia, doloremque corrupti labore, quae voluptatem obcaecati consequuntur ad ipsum fugit impedit cum. Facere, ea? Eveniet quisquam ratione voluptate rerum tempora, consectetur assumenda. Porro temporibus suscipit corporis nulla?</p>
-                                      </div>
-                                  </div>
+                                <p>We as a team are indeed previleged to work on this CEG Hostel Library web app. It brought us experience in the main domains we will be required to work with in the upcoming years. This project would not have been possible with each member playing a vital role wihtout whom this project would not have been possible considering the very short deadline we had.</p>
+                              </div>
+
+                              <div class="d-md-flex">
+                                <p>This site was done in two weeks with the developers,being third year B.E. students from the Department of Computer Science getting this project the most time they could afford.</p>
+                              </div>
                               </div>
                           </div>
                       </div>
                     </div>
 
-                    <div class="col-xl-12 col-lg-12 mt-5">
-                        <div class="card">
-                            <div class="card-body bg1">
-                                <h4 class="header-title text-white">Client Feadback</h4>
-                                <div class="testimonial-carousel owl-carousel">
-                                    <div class="tst-item">
-                                        <div class="tstu-img">
-                                            <img src="assets/images/team/team-author1.jpg" alt="author image">
-                                        </div>
-                                        <div class="tstu-content">
-                                            <h4 class="tstu-name">Abel Franecki</h4>
-                                            <span class="profsn">Designer</span>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laborum ut nihil numquam a aliquam alias necessitatibus ipsa soluta quam!</p>
-                                        </div>
-                                    </div>
-                                    <div class="tst-item">
-                                        <div class="tstu-img">
-                                            <img src="assets/images/team/team-author2.jpg" alt="author image">
-                                        </div>
-                                        <div class="tstu-content">
-                                            <h4 class="tstu-name">Abel Franecki</h4>
-                                            <span class="profsn">Designer</span>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laborum ut nihil numquam a aliquam alias necessitatibus ipsa soluta quam!</p>
-                                        </div>
-                                    </div>
-                                    <div class="tst-item">
-                                        <div class="tstu-img">
-                                            <img src="assets/images/team/team-author3.jpg" alt="author image">
-                                        </div>
-                                        <div class="tstu-content">
-                                            <h4 class="tstu-name">Abel Franecki</h4>
-                                            <span class="profsn">Designer</span>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laborum ut nihil numquam a aliquam alias necessitatibus ipsa soluta quam!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <!-- left align tab end -->
                 </div>
             </div>

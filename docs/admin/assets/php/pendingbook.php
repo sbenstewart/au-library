@@ -30,6 +30,9 @@ try {
                   echo '<tbody>';
         foreach ($conn->query("SELECT book.id,book.name as bname,user.name as uname,issued.fine FROM (issued INNER JOIN user ON issued.userid=user.id) INNER JOIN book ON book.id = issued.bookid") as $row)
         {
+          $fine2 = $row['fine'];
+          if($fine2>0)
+          {
 
           echo "<tr><th scope='row'>";
           echo $count;
@@ -48,7 +51,10 @@ try {
           echo "</td></tr>";
           $count = $count+1;
 
-
+        }
+        else {
+          $flag = 1;
+        }
           /*session is started if you don't write this line can't use $_Session  global variable*/
         }
         echo "</tbody>";
@@ -56,8 +62,11 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "";
+        echo "There are no fines to be collected.";
 
+        }
+        if ($flag == 1) {
+          echo "No books have fines";
         }
         }
         else {

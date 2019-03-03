@@ -45,6 +45,18 @@ try {
           throw new Exception("Wrong student register number.");
         }
         }
+  $sql = "SELECT * FROM issued where userid = '$userid' and bookid='$bookid' and fine > 0";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+        foreach ($conn->query("SELECT fine FROM issued where userid = '$userid' and bookid='$bookid' and fine > 0") as $row)
+        {
+          $fine=$row['fine'];
+          throw new Exception("Fine amount of ".$fine." is pending.");
+
+        }
+        }
+
+        }
   $count = $conn->exec("UPDATE issued SET issuedate=(SELECT CURDATE()),returndate=(SELECT ADDDATE(CURDATE(),(SELECT value1 FROM config WHERE key1='returndays'))) WHERE userid='$userid' AND bookid='$bookid'");
   echo "Book has been re-issued to the student.";
 

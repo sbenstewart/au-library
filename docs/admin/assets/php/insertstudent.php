@@ -27,6 +27,16 @@ try {
   }
   else{throw new Exception("<b>You must log in.</b>");}
 
+  $sql = "SELECT id FROM user where reg = '$reg2'";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+          throw new Exception("Student roll number has already been taken.");
+        }
+        }
+
+  $password2 = password_hash($password2, PASSWORD_BCRYPT);
+
+
   $count = $conn->exec("INSERT INTO user (reg,name,password,course,dept,year,mail,phone) VALUES ('$reg2','$name2','$password2','$course2','$department2','$year2','$email2','$phone2')");
   echo "Student record has been inserted.";
 

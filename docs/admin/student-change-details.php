@@ -1,6 +1,6 @@
 <?php session_start();  ob_start();
-    if (!isset($_SESSION['reg'])) {
-    header('location:index.php');
+    if (!isset($_SESSION['admin'])) {
+    header('location:index.html');
     echo "Must redirect";
     exit(); // <-- terminates the current script
   }
@@ -123,15 +123,8 @@
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
-                    <div class="col-lg-6 col-ml-12">
-                        <div class="row">
 
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-ml-12">
+                    <div class="col-lg-12 col-ml-12">
                         <div class="row">
                             <!-- basic form start -->
                             <div class="col-12 mt-5">
@@ -178,7 +171,11 @@
                                               <select id="course" class="custom-select">
                                                   <option selected="">Chose your course</option>
                                                   <option value="B.E.">B.E.</option>
+                                                  <option value="B.Tech.">B.Tech.</option>
                                                   <option value="M.E.">M.E.</option>
+                                                  <option value="M.Tech.">M.Tech.</option>
+                                                  <option value="M.C.A.">M.C.A.</option>
+                                                  <option value="M.B.A.">M.B.A.</option>
                                                   <option value="M.Sc.">M.Sc.</option>
                                                   <option value="Ph.D.">Ph.D.</option>
                                               </select>

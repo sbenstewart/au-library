@@ -31,7 +31,16 @@ try {
   }
   else{throw new Exception("<b>You must log in.</b>");}
 
-  $count = $conn->exec("INSERT INTO book (isbn,name,author,count,remaining,publisher,edition,price,subject,reference,department,row) VALUES ('$bookid2','$name2','$author2',$count2,$count2,'$publisher2','$edition2',$price2,'$subject2','yes','$department2','$row2')");
+  $sql = "SELECT id FROM book where isbn = '$bookid2'";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+
+          throw new Exception("Book ISBN has been taken.");
+        }
+        }
+
+
+  $count = $conn->exec("INSERT INTO book (isbn,name,author,count,remaining,publisher,edition,price,subject,reference,department,row) VALUES ('$bookid2','$name2','$author2',1,1,'$publisher2','$edition2',$price2,'$subject2','$count2','$department2','$row2')");
   echo "Book has been inserted.";
 
 

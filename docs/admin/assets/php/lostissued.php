@@ -33,8 +33,6 @@ try {
           throw new Exception("Wrong book id.");
         }
         }
-
-
   $sql = "SELECT id FROM user where reg = '$student2'";
   if ($res = $conn->query($sql)) {
       if ($res->fetchColumn() > 0) {
@@ -47,46 +45,23 @@ try {
           throw new Exception("Wrong student register number.");
         }
         }
-  $sql = "SELECT value1 from config where key1='borrow'";
+  $sql = "SELECT price FROM book where isbn = '$book2'";
   if ($res = $conn->query($sql)) {
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT value1 from config where key1='borrow'") as $row)
+        foreach ($conn->query("SELECT price FROM book where isbn = '$book2'") as $row)
         {
-          $borrowlimit=$row['value1'];
-          $borrowlimit=$borrowlimit-1;
+          $fine =$row['price'];
+          echo "The";
+          echo $fine;
+          echo " fine amount is to be collected.";
 
-        }
-        }
-        else {
-          throw new Exception("Check your internet connection.");
-        }
-        }
-  $sql = "SELECT COUNT(*) FROM issued WHERE userid = '$userid'";
-  if ($res = $conn->query($sql)) {
-      if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT COUNT(*) as temp FROM issued WHERE userid = '$userid'") as $row)
-        {
-            $bookscount=$row['temp'];
-            if($bookscount > $borrowlimit)
-            {
-                throw new Exception("Maximum book borrow limit exceeded.");
-            }
         }
 
         }
-        }
-
-  $sql = "SELECT * FROM book WHERE isbn = '$book2' and remaining > 0 and reference='no'";
-  if ($res = $conn->query($sql)) {
-      if ($res->fetchColumn() > 0) {
-
-        }
-        else {
-          throw new Exception("Book not available.");
-        }
-        }
-  $count = $conn->exec("INSERT INTO issued (userid,bookid,issuedate,returndate) VALUES ('$userid', '$bookid', (SELECT CURDATE()), (SELECT ADDDATE(CURDATE(),(SELECT value1 FROM config WHERE key1='returndays'))))");
-  echo "Book has been issued to the student.";
+      }      
+  $count = $conn->exec("DELETE FROM issued WHERE userid='$userid' AND bookid='$bookid'");
+  $count = $conn->exec("DELETE FROM book WHERE id='$bookid'");
+  echo "Collect fine from the student.";
 
 
 } catch(Exception $e) {

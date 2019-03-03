@@ -1,6 +1,6 @@
 <?php session_start();  ob_start();
-    if (!isset($_SESSION['reg'])) {
-    header('location:index.php');
+    if (!isset($_SESSION['admin'])) {
+    header('location:index.html');
     echo "Must redirect";
     exit(); // <-- terminates the current script
   }
@@ -157,11 +157,6 @@
                                           </div>
 
                                           <div class="form-group">
-                                              <label for="count">Count</label>
-                                              <input type="number" class="form-control" id="count" aria-describedby="emailHelp" placeholder="Enter count">
-                                          </div>
-
-                                          <div class="form-group">
                                               <label for="publisher">Publisher</label>
                                               <input type="text" class="form-control" id="publisher" aria-describedby="emailHelp" placeholder="Enter the book publisher">
                                           </div>
@@ -189,6 +184,15 @@
                                           <div class="form-group">
                                               <label for="row">Row</label>
                                               <input type="text" class="form-control" id="row" aria-describedby="emailHelp" placeholder="Enter row where the book will be placed">
+                                          </div>
+
+                                          <div class="form-group">
+                                              <label class="col-form-label">Reference</label>
+                                              <select id="ref" class="custom-select">
+                                                  <option selected="">Chose your course</option>
+                                                  <option value="Yes">Yes</option>
+                                                  <option value="No">No</option>
+                                              </select>
                                           </div>
 
 

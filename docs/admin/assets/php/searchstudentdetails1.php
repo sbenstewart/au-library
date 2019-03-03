@@ -61,6 +61,7 @@ try {
         }
         /* No rows matched -- do something else */
         else {
+        echo "No entries matched";
 
         }
         }

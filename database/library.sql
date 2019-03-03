@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 27, 2019 at 02:23 PM
+-- Generation Time: Mar 01, 2019 at 06:22 AM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -27,7 +27,7 @@ USE `library`;
 --
 -- Table structure for table `admin`
 --
--- Creation: Feb 20, 2019 at 03:41 AM
+-- Creation: Mar 01, 2019 at 05:32 AM
 --
 
 CREATE TABLE `admin` (
@@ -48,7 +48,8 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 --
 -- Table structure for table `book`
 --
--- Creation: Feb 26, 2019 at 04:19 PM
+-- Creation: Mar 01, 2019 at 05:32 AM
+-- Last update: Mar 01, 2019 at 06:20 AM
 --
 
 CREATE TABLE `book` (
@@ -72,7 +73,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publisher`, `edition`, `price`, `subject`, `reference`, `department`, `row`) VALUES
-(1, '180001', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 0, 'Scitech Publications', '2', 390, 'Physics', 'Yes', 'Physics', ''),
+(1, '180001', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 390, 'Physics', 'Yes', 'Physics', ''),
 (2, '180002', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 375, 'Physics', 'No', 'Physics', ''),
 (3, '180003', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 390, 'Physics', 'Yes', 'Physics', ''),
 (4, '180004', 'Engineering Physics', 'P.K.Palanisamy   ', 1, 1, 'Scitech Publications', '2', 425, 'Physics', 'No', 'Physics', ''),
@@ -660,7 +661,7 @@ INSERT INTO `book` (`id`, `isbn`, `name`, `author`, `count`, `remaining`, `publi
 --
 -- Table structure for table `config`
 --
--- Creation: Feb 22, 2019 at 04:43 PM
+-- Creation: Mar 01, 2019 at 05:32 AM
 --
 
 CREATE TABLE `config` (
@@ -682,7 +683,8 @@ INSERT INTO `config` (`key1`, `value1`) VALUES
 --
 -- Table structure for table `history`
 --
--- Creation: Feb 19, 2019 at 04:19 PM
+-- Creation: Mar 01, 2019 at 05:32 AM
+-- Last update: Mar 01, 2019 at 06:20 AM
 --
 
 CREATE TABLE `history` (
@@ -693,13 +695,6 @@ CREATE TABLE `history` (
   `returndate` date NOT NULL,
   `fine` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `history`
---
-
-INSERT INTO `history` (`id`, `userid`, `bookid`, `issuedate`, `returndate`, `fine`) VALUES
-(5, 2, 1, '2019-02-27', '2019-04-13', 0);
 
 --
 -- Triggers `history`
@@ -714,7 +709,8 @@ DELIMITER ;
 --
 -- Table structure for table `issued`
 --
--- Creation: Feb 27, 2019 at 05:47 AM
+-- Creation: Mar 01, 2019 at 05:32 AM
+-- Last update: Mar 01, 2019 at 06:20 AM
 --
 
 CREATE TABLE `issued` (
@@ -725,13 +721,6 @@ CREATE TABLE `issued` (
   `returndate` date DEFAULT NULL,
   `fine` int(100) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `issued`
---
-
-INSERT INTO `issued` (`id`, `userid`, `bookid`, `issuedate`, `returndate`, `fine`) VALUES
-(6, 2, 1, '2019-02-27', '2019-04-13', 0);
 
 --
 -- Triggers `issued`
@@ -753,14 +742,15 @@ DELIMITER ;
 --
 -- Table structure for table `user`
 --
--- Creation: Feb 20, 2019 at 04:21 AM
+-- Creation: Mar 01, 2019 at 05:47 AM
+-- Last update: Mar 01, 2019 at 06:21 AM
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL COMMENT 'id for db access',
   `reg` varchar(16) NOT NULL COMMENT 'roll number given for each student in the college',
   `name` varchar(36) NOT NULL COMMENT 'name of the student',
-  `password` varchar(36) NOT NULL COMMENT 'password assigned to the student',
+  `password` varchar(300) NOT NULL COMMENT 'password assigned to the student',
   `course` varchar(100) NOT NULL,
   `dept` varchar(100) NOT NULL,
   `year` varchar(8) NOT NULL,
@@ -773,8 +763,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `reg`, `name`, `password`, `course`, `dept`, `year`, `mail`, `phone`) VALUES
-(1, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test'),
-(2, '2', 'ben', 'test', 'cse', 'cse', '2018', 'sbenstewart@gmail.com', '9489408090');
+(4, 'test', 'test', '$2y$10$3uiYa9mYTs8qC7Uda.UA5uKobIVPj6ckdvO9.q/AVEW4HtVGbzZD.', 'B.E.', 'test', 'test', 'test@gmail.com', '123456789');
 
 --
 -- Indexes for dumped tables
@@ -828,25 +817,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=583;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=584;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `issued`
 --
 ALTER TABLE `issued`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for db access', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for db access', AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -863,7 +852,9 @@ DELIMITER $$
 --
 -- Events
 --
-CREATE DEFINER=`root`@`localhost` EVENT `fines` ON SCHEDULE EVERY 1 DAY STARTS '2019-02-19 22:23:06' ON COMPLETION NOT PRESERVE ENABLE DO update issued set fine=datediff(issued.issuedate,curdate())*(SELECT value from config where `key`='fine') where datediff(issued.issuedate,curdate())>(SELECT value from config where `key`='fine')$$
+CREATE DEFINER=`root`@`localhost` EVENT `temp` ON SCHEDULE EVERY 1 SECOND STARTS '2019-02-19 22:23:06' ON COMPLETION NOT PRESERVE ENABLE DO update issued set fine=10$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `fines` ON SCHEDULE EVERY 1 DAY STARTS '2019-02-19 22:23:06' ON COMPLETION NOT PRESERVE ENABLE DO update issued set fine=datediff(issued.returndate,curdate())*(SELECT value1 from config where `key1`='fine') where datediff(issued.returndate,curdate())>(SELECT value1 from config where `key1`='returndays')$$
 
 DELIMITER ;
 

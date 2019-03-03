@@ -27,7 +27,7 @@ try {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT isbn,name,author,remaining from book where author LIKE '%$author2%'") as $row)
+        foreach ($conn->query("SELECT isbn,name,author,count,remaining,edition,price,subject,reference,department,row from book where author LIKE '%$author2%'") as $row)
         {
 
           echo '<tbody>';
@@ -76,7 +76,7 @@ try {
         }
         /* No rows matched -- do something else */
         else {
-        echo "";
+        echo "No books matched";
 
         }
         }
