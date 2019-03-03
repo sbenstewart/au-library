@@ -51,19 +51,39 @@
                 </div>
             </div>
             <div class="main-menu">
-                <div class="menu-inner">
-                    <nav>
-                        <ul class="metismenu" id="menu">
+              <div class="menu-inner">
+                <nav>
+                    <ul class="metismenu" id="menu">
+                      <li><a href="main.php"><i class="fa fa-file"></i> <span>Essentials</span></a></li>
 
-                            <li><a href="borrowed-books.php"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
-                            <li><a href="search-books.php"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
-                            <li class="active"><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
-                            <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
-                            <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
 
-                        </ul>
-                    </nav>
-                </div>
+                      <li>
+                          <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>Students</span></a>
+                          <ul class="collapse">
+                              <li><a href="student-signup.php">Signup</a></li>
+                              <li><a href="student-change-details.php">Change details</a></li>
+                              <li><a href="search-students.php">Search</a></li>
+                          </ul>
+                      </li>
+
+                      <li>
+                          <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-book"></i><span>Books</span></a>
+                          <ul class="collapse">
+                              <li><a href="book-entry.php">New entry</a></li>
+                              <li><a href="modify-book-entry.php">Change details</a></li>
+                              <li><a href="search-books.php">Search</a></li>
+
+                          </ul>
+                      </li>
+                      <li><a href="fines.php"><i class="fa fa-university"></i> <span>Fines</span></a></li>
+                      <li><a href="superuser.php"><i class="fa fa-user-plus"></i> <span>Super User</span></a></li>
+                      <li class="active"><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
+                      <li><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
+                      <li><a href="about.php#team"><i class="fa fa-github"></i> <span>Developers</span></a></li>
+
+                    </ul>
+                </nav>
+              </div>
             </div>
         </div>
         <!-- sidebar menu area end -->
