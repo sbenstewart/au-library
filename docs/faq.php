@@ -152,10 +152,10 @@
                                         <div id="accordion53" class="collapse" data-parent="#accordion5">
                                             <div class="card-body">
                                               <ul>
-                                                  <li>Monday to Friday</li>
-                                                  <li>Weekends</li>
-                                                  <li>During exams</li>
-                                              <ul>
+                                                  <li>Monday to Friday &emsp;&emsp; <b>5 P.M. to 7 P.M.</b></li>
+                                                  <li>Weekends&emsp;&emsp; <b>10 A.M. to 1 P.M. and 2 P.M. to 5 P.M.</b></li>
+                                                  <li>During exams&emsp;&emsp; <b>5 P.M. to 7 P.M</b></li>
+                                              </ul>
                                             </div>
                                         </div>
                                     </div>
