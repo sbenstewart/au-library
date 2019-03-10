@@ -164,6 +164,68 @@
                         </div>
                     </div>
 
+                    <div class="col-xl-6 col-lg-5 col-md-12 mt-5">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="d-sm-flex flex-wrap justify-content-between mb-4 align-items-center">
+                                  <h4 class="header-title mb-0">Guided by</h4>
+
+                              </div>
+                              <div class="member-box">
+                                <div class="s-member">
+                                    <div class="media align-items-center">
+                                        <div class="media-body ml-5">
+                                            <p>Dr. T. V. Geetha</p><span>Warden, CEG Hostels</span>
+                                        </div>
+                                        <div class="tm-social">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                  <div class="s-member">
+                                      <div class="media align-items-center">
+                                          <div class="media-body ml-5">
+                                              <p>Dr. P. Hariharan</p><span>Executive Warden, CEG Hostels</span>
+                                          </div>
+                                          <div class="tm-social">
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="s-member">
+                                      <div class="media align-items-center">
+                                          <div class="media-body ml-5">
+                                              <p>Dr. M. Pradeep Kumar</p><span>Deputy Warden, CEG Hostels</span>
+                                          </div>
+                                          <div class="tm-social">
+
+                                          </div>
+                                      </div>
+                                  </div>
+
+
+
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-body">
+                            <div class="d-sm-flex flex-wrap justify-content-between mb-4 align-items-center">
+                                <h4 class="header-title mb-0">A message from the team</h4>
+
+                            </div>
+                              <div class="d-md-flex">
+                                <p>We as a team are indeed previleged to work on this CEG Hostel Library web app. It brought us experience in the main domains we will be required to work with in the upcoming years. This project would not have been possible with each member playing a vital role wihtout whom this project would not have been possible considering the very short deadline we had.</p>
+                              </div>
+
+                              <div class="d-md-flex">
+                                <p>This site was done in two weeks with the developers,being third year B.E. students from the Department of Computer Science getting this project the most time they could afford.</p>
+                              </div>
+                              </div>
+                          </div>
+
+                      </div>
+
                     <div class="col-xl-6 col-lg-5 col-md-12 mt-5" id="team">
                         <div class="card">
                             <div class="card-body">
@@ -238,23 +300,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-5 col-md-12 mt-5">
-                      <div class="card">
-                          <div class="card-body">
-                            <div class="d-sm-flex flex-wrap justify-content-between mb-4 align-items-center">
-                                <h4 class="header-title mb-0">A message from the team</h4>
 
-                            </div>
-                              <div class="d-md-flex">
-                                <p>We as a team are indeed previleged to work on this CEG Hostel Library web app. It brought us experience in the main domains we will be required to work with in the upcoming years. This project would not have been possible with each member playing a vital role wihtout whom this project would not have been possible considering the very short deadline we had.</p>
-                              </div>
-
-                              <div class="d-md-flex">
-                                <p>This site was done in two weeks with the developers,being third year B.E. students from the Department of Computer Science getting this project the most time they could afford.</p>
-                              </div>
-                              </div>
-                          </div>
-                      </div>
                     </div>
 
 
