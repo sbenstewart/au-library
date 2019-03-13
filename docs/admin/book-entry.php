@@ -182,6 +182,11 @@
                                           </div>
 
                                           <div class="form-group">
+                                              <label for="donate">Donated by</label>
+                                              <input type="text" class="form-control" id="donate" aria-describedby="emailHelp" placeholder="Enter name">
+                                          </div>
+
+                                          <div class="form-group">
                                               <label class="col-form-label">Reference</label>
                                               <select id="ref" class="custom-select">
                                                   <option selected="">Chose your course</option>
