@@ -23,12 +23,12 @@ try {
   else{throw new Exception("<b>You must log in.</b>");}
 
 
-  $sql = "SELECT * FROM $user WHERE reg='$roll2' OR name='$name2'";
+  $sql = "SELECT * FROM $user WHERE reg='$roll2' OR name LIKE '%$name2%'";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT name,course,dept,year,mail,phone FROM $user WHERE reg='$roll2' OR name='$name2'") as $row)
+        foreach ($conn->query("SELECT name,course,dept,year,mail,phone FROM $user WHERE reg='$roll2' OR name LIKE '%$name2%'") as $row)
         {
 
           echo '<tbody>';

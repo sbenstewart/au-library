@@ -22,12 +22,12 @@ try {
   else{throw new Exception("<b>You must log in.</b>");}
 
 
-  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2' and name='$name2'))";
+  $sql = "SELECT * FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2' and name LIKE '%$name2%'))";
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
-        foreach ($conn->query("SELECT book.isbn,book.name,issued.returndate,issued.fine FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2' and name='$name2'))") as $row)
+        foreach ($conn->query("SELECT book.isbn,book.name,issued.returndate,issued.fine FROM book INNER JOIN issued ON book.id = issued.bookid AND issued.bookid in (SELECT bookid FROM issued WHERE userid = (SELECT id from user where reg='$roll2' and name LIKE '%$name2%'))") as $row)
         {
 
           echo '<tbody>';
