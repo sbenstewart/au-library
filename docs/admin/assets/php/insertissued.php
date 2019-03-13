@@ -76,13 +76,23 @@ try {
         }
         }
 
-  $sql = "SELECT * FROM book WHERE isbn = '$book2' and remaining > 0 and reference='no'";
+  $sql = "SELECT * FROM book WHERE isbn = '$book2' and remaining > 0";
   if ($res = $conn->query($sql)) {
       if ($res->fetchColumn() > 0) {
 
         }
         else {
           throw new Exception("Book not available.");
+        }
+        }
+
+  $sql = "SELECT * FROM book WHERE isbn = '$book2' and reference='no'";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+
+        }
+        else {
+          throw new Exception("Book is a refernece copy.");
         }
         }
   $count = $conn->exec("INSERT INTO issued (userid,bookid,issuedate,returndate) VALUES ('$userid', '$bookid', (SELECT CURDATE()), (SELECT ADDDATE(CURDATE(),(SELECT value1 FROM config WHERE key1='returndays'))))");
