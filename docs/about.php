@@ -57,6 +57,7 @@
                         <ul class="metismenu" id="menu">
 
                             <li><a href="borrowed-books.php"><i class="fa fa-book"></i> <span>Borrowed Books</span></a></li>
+                            <li><a href="borrowed-books.php"><i class="fa fa-heart"></i> <span>Donated Books</span></a></li>
                             <li><a href="search-books.php"><i class="fa fa-search"></i> <span>Search Books</span></a></li>
                             <li><a href="faq.php"><i class="fa fa-question"></i> <span>FAQs</span></a></li>
                             <li class="active"><a href="about.php"><i class="fa fa-users"></i> <span>About Us</span></a></li>
