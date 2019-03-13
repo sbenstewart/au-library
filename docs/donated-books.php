@@ -131,8 +131,6 @@
                                                     <th scope="col">Book ID</th>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Author</th>
-                                                    <th scope="col">Date of Return</th>
-                                                    <th scope="col">Returned</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="tablebody"></tbody>
