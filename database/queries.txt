@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `donatedby` VARCHAR(236) NULL DEFAULT NULL AFTER `phone`;

@@ -39,7 +39,6 @@ try {
         }
         }
 
-
   $count = $conn->exec("INSERT INTO book (isbn,name,author,count,remaining,publisher,edition,price,subject,reference,department,row,donatedby) VALUES ('$bookid2','$name2','$author2',1,1,'$publisher2','$edition2',$price2,'$subject2','$count2','$department2','$row2','$donate2')");
   echo "Book has been inserted.";
 
