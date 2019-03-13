@@ -431,8 +431,9 @@ var price = document.getElementById("price").value;
 var subject = document.getElementById("subject").value;
 var department = document.getElementById("department").value;
 var row = document.getElementById("row").value;
+var donate = document.getElementById("donate").value;
 // Returns successful data submission message when the entered information is stored in database.
-var dataString = '&bookid1=' + bookid + '&name1=' + name + '&author1=' + author + '&count1=' + count + '&publisher1=' + publisher + '&edition1=' + edition + '&price1=' + price + '&subject1=' + subject + '&department1=' + department + '&row1=' + row;
+var dataString = '&bookid1=' + bookid + '&name1=' + name + '&author1=' + author + '&count1=' + count + '&publisher1=' + publisher + '&edition1=' + edition + '&price1=' + price + '&subject1=' + subject + '&department1=' + department + '&row1=' + row + '&donate1=' + donate;
 if (bookid==''||name==''||author==''||count==''||publisher==''||edition==''||price==''||subject==''||department==''||row=='') {
 alert("Please Fill All Fields");
 } else {
