@@ -39,7 +39,26 @@ try {
         }
         }
 
-  $count = $conn->exec("INSERT INTO book (isbn,name,author,count,remaining,publisher,edition,price,subject,reference,department,row,donatedby) VALUES ('$bookid2','$name2','$author2',1,1,'$publisher2','$edition2',$price2,'$subject2','$count2','$department2','$row2','$donate2')");
+
+
+  $sql = "SELECT id FROM user where reg = '$donate2'";
+  if ($res = $conn->query($sql)) {
+      if ($res->fetchColumn() > 0) {
+        foreach ($conn->query("SELECT id FROM user where reg = '$donate2'") as $row)
+        {
+          $id = $row['id'];
+        }
+
+        }
+        else {
+        throw new Exception("Donor must register.");
+
+        }
+        }
+        else {
+        echo "Submission failed. Try later.";
+        }
+  $count = $conn->exec("INSERT INTO book (isbn,name,author,count,remaining,publisher,edition,price,subject,reference,department,row,donatedby) VALUES ('$bookid2','$name2','$author2',1,1,'$publisher2','$edition2',$price2,'$subject2','$count2','$department2','$row2','$id')");
   echo "Book has been inserted.";
 
 

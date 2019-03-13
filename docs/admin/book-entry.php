@@ -183,7 +183,7 @@
 
                                           <div class="form-group">
                                               <label for="donate">Donated by</label>
-                                              <input type="text" class="form-control" id="donate" aria-describedby="emailHelp" placeholder="Enter name">
+                                              <input type="text" class="form-control" id="donate" aria-describedby="emailHelp" placeholder="Enter roll number">
                                           </div>
 
                                           <div class="form-group">
