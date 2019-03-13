@@ -5,22 +5,22 @@ try {
 
   $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $count = 1;
-  if(isset($_SESSION['name']))
+  if(isset($_SESSION['reg']))
   {
-  $name=$_SESSION['name'];
+  $reg=$_SESSION['reg'];
   }
   else {
     throw new Exception("You must be logged in to view the books.");
   }
 
-  $sql = "SELECT book.isbn,book.name,book.author FROM book  WHERE donatedby = name='$name'";
+  $sql = "SELECT book.isbn,book.name,book.author FROM book  WHERE donatedby = (SELECT id FROM user WHERE reg='$reg')";
 
   if ($res = $conn->query($sql)) {
 
       /* Check the number of rows that match the SELECT statement */
       if ($res->fetchColumn() > 0) {
 
-        foreach ($conn->query("SELECT book.isbn,book.name,book.author FROM book  WHERE donatedby = name='$name'") as $row)
+        foreach ($conn->query("SELECT book.isbn,book.name,book.author FROM book  WHERE donatedby = (SELECT id FROM user WHERE reg='$reg')") as $row)
         {
 
           echo '<tbody>';
@@ -35,7 +35,6 @@ try {
           echo "</td><td>";
           $author2 = $row['author'];
           echo $author2;
-          echo "</td><td>";
           echo "</td></tr></tbody>";
           $count = $count+1;
 
