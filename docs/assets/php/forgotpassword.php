@@ -33,8 +33,8 @@ try {
         /* Check the number of rows that match the SELECT statement */
         if ($res->fetchColumn() > 0) {
 
-					$code = password_hash($code, PASSWORD_BCRYPT);
-          $count = $conn->exec("update user set password='$code' where reg='$roll2'");
+					$code2 = password_hash($code, PASSWORD_BCRYPT);
+          $count = $conn->exec("update user set password='$code2' where reg='$roll2'");
           //echo "New password is $code";
 
 					foreach ($conn->query("SELECT mail from admin where reg='$roll2'") as $row)
